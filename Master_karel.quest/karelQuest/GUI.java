@@ -20,7 +20,7 @@ public class GUI {
 		//---------------------------------------------------------//
 		
 		//Settings Variables
-		int height = 300; int width = 400;
+		int height = 139; int width = 290;
 		int gHeight = 238; int gWidth = 516;
 		int startingHealth = 100;
 		
@@ -45,7 +45,7 @@ public class GUI {
 		
 		//Regenerate Map button
 		JButton regen = new JButton("Regenerate Map");
-		regen.setBounds(125, 0, 125, 50);
+		regen.setBounds(125, 0, 150, 50);
 		
 		//Karel health(numerical)
 		JTextField kHealth = new JTextField();
@@ -53,7 +53,7 @@ public class GUI {
 		
 		//Karel health(bar)
 		JProgressBar healthBar = new JProgressBar();
-		healthBar.setBounds(0, 100, 200, 50);
+		healthBar.setBounds(100, 50, 175, 50);
 		
 		
 		
@@ -102,8 +102,8 @@ public class GUI {
 			//Regenerate Map Button Actions
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(gameWindow.getHeight());
-				System.out.println(gameWindow.getWidth());
+				//System.out.println(frame.getHeight());
+				//System.out.println(frame.getWidth());
 				Que.draw(d, new Floor(50,20,3));
 			}
 			
