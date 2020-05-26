@@ -36,14 +36,26 @@ public class GUI {
 		//---------------------------------------------------------//
 		//---STUFF FOR frame WINDOW--------------------------------//
 		
+		//setting window size
 		frame.setPreferredSize(new Dimension(width, height));
 		
-		//Elements
+		//Damage Karel button
 		JButton testHealth = new JButton("Damage Karel");
-		testHealth.setBounds(0, 0, 200, 50);
+		testHealth.setBounds(0, 0, 125, 50);
+		
+		//Damage Karel button
+		JButton regen = new JButton("Regenerate Map");
+		regen.setBounds(125, 0, 125, 50);
+		
+		//Karel health(numerical)
 		JTextField kHealth = new JTextField();
 		kHealth.setBounds(0,50,100,50);
+		
+		//Karel health(bar)
 		JProgressBar healthBar = new JProgressBar();
+		healthBar.setBounds(0, 100, 200, 50);
+		
+		
 		
 		//Element Setup
 		healthBar.setMaximum(startingHealth);
@@ -52,6 +64,7 @@ public class GUI {
 		kHealth.setText(Integer.toString(Que.getPlayer().getHealth()));
 		//Adding Elements to Frame
 		//frame.add(contentPane);
+		frame.add(regen);
 		frame.add(healthBar);
 		frame.add(kHealth);
 		frame.add(testHealth);

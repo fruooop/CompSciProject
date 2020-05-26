@@ -31,15 +31,19 @@ public class Floor {
 		generateLayout();
 	}
 	
-	public void generateLayout() {
+	private void generateLayout() {
 		//generates entire floor
 		
 		//create room around seed, checking that the room does not generate out of bounds.
-		createRoom(makeSeedRoom(seedX,seedY));
+		createRoom(makeRoom(seedX,seedY));
 		
+		while(roomList[roomList.length - 1] == null){
+			createRoom(makeRoom((int)(floor.length * Math.random()),(int)(floor[0].length* Math.random())));
+		}
+		connectRooms();
 	}
 	
-	public boolean createRoom(Room r) {
+	private boolean createRoom(Room r) {
 		//adds r to roomList, and makes walkable tiles over the room's region. Returns true if successful, false otherwise.
 
 		int cur = 0; //adding r to roomList (if there is room) (haha no pun intended)
@@ -70,7 +74,7 @@ public class Floor {
 				{
 					s += "X";
 				}
-				if(getAt(r,c).hasEntity())
+				else if(getAt(r,c).hasEntity())
 				{
 					s+= "@";
 				}
@@ -92,7 +96,7 @@ public class Floor {
 		return floor[x][y];
 	}
 	
-	private Room makeSeedRoom(int centerX, int centerY) {
+	private Room makeRoom(int centerX, int centerY) {
 		//Creates a room around the given point, with size determined from the final variables above.
 		int roomCenterX = centerX;
 		int roomCenterY = centerY;
@@ -142,5 +146,171 @@ public class Floor {
 	public int getHeight() {return floor[0].length;}
 	public int getWidth() {return floor.length; }
 
+	private Tile getRandomEdgeCoord(Room r){
+		//Pre: this room does not take up the entire floor (why would you do that)
+		//returns a Tile that is on the edge of the room but not the edge of the floor.
+		ArrayList<int[]> edgeCoordsList = new ArrayList<int[]>();
+		//check top of room
+		if (r.getCorner1Y() != 0) {
+			for (int x = r.getCorner1X(); x <= r.getCorner2X(); x++) {
+				int[] temp = {x, r.getCorner1Y()};
+				edgeCoordsList.add(temp);
+			}
+		}
+		//check bottom of room
+		if (r.getCorner2Y() != floor[0].length - 1) {
+			for (int x = r.getCorner1X(); x <= r.getCorner2X(); x++) {
+				int[] temp = {x, r.getCorner2Y()};
+				edgeCoordsList.add(temp);
+			}
+		}
+		//check left side of room
+		if (r.getCorner1X() != 0) {
+			for (int y = r.getCorner1Y() + 1; y < r.getCorner2Y(); y++) {
+				int[] temp = {r.getCorner1X(), y};
+				edgeCoordsList.add(temp);
+			}
+		}
+		//check right side of room
+		if (r.getCorner2X() != floor.length - 1) {
+			for (int y = r.getCorner1Y() + 1; y < r.getCorner2Y(); y++) {
+				int[] temp = {r.getCorner2X(), y};
+				edgeCoordsList.add(temp);
+			}
+		}
+		int[] random = edgeCoordsList.get((int)(Math.random()*edgeCoordsList.size()));
+		return getAt(random[0],random[1]);
+	}
+	
+	private void connectRooms() {
+		//Pre: roomList has at least 2 nonnull elements.
+		//creates corridors between all rooms on the floor.
+		//corridors will traverse from roomList[0] to roomList[1] to ... to roomList[roomList.length - 1].
+		
+		for (int roomNum = 1; roomNum < roomList.length; roomNum++) {
+			Tile t1 = getRandomEdgeCoord(roomList[roomNum - 1]);
+			Tile t2 = getRandomEdgeCoord(roomList[roomNum]);
+			boolean acrossFirst = (Math.random() < .5); //whether or not the path will go across first to get from t1 go t2.
+			if (t1.getX() >= t2.getX() && t1.getY() >= t2.getY()) {
+				if(acrossFirst) {
+					for(int x = t1.getX();x>=t2.getX();x--) {
+						getAt(x,t1.getY()).walkOn();
+					}
+					for(int y = t1.getY(); y>=t2.getY(); y--) {
+						getAt(t2.getX(),y).walkOn();
+					}
+				}
+				else {
+					for(int y = t1.getY(); y>=t2.getY(); y--) {
+						getAt(t1.getX(),y).walkOn();
+					}
+					for(int x = t1.getX();x>=t2.getX();x--) {
+						getAt(x,t2.getY()).walkOn();
+					}
+				}
+			}
+			else if (t1.getX() <= t2.getX() && t1.getY() >= t2.getY()) {
+				if(acrossFirst) {
+					for(int x = t1.getX();x<=t2.getX();x++) {
+						getAt(x,t1.getY()).walkOn();
+					}
+					for(int y = t1.getY(); y>=t2.getY(); y--) {
+						getAt(t2.getX(),y).walkOn();
+					}
+				}
+				else {
+					for(int y = t1.getY(); y>=t2.getY(); y--) {
+						getAt(t1.getX(),y).walkOn();
+					}
+					for(int x = t1.getX();x<=t2.getX();x++) {
+						getAt(x,t2.getY()).walkOn();
+					}
+				}
+			}
+			else if (t1.getX() >= t2.getX() && t1.getY() <= t2.getY()) {
+				if(acrossFirst) {
+					for(int x = t1.getX();x>=t2.getX();x--) {
+						getAt(x,t1.getY()).walkOn();
+					}
+					for(int y = t1.getY(); y<=t2.getY(); y++) {
+						getAt(t2.getX(),y).walkOn();
+					}
+				}
+				else {
+					for(int y = t1.getY(); y<=t2.getY(); y++) {
+						getAt(t1.getX(),y).walkOn();
+					}
+					for(int x = t1.getX();x>=t2.getX();x--) {
+						getAt(x,t2.getY()).walkOn();
+					}
+				}
+			}
+			else if (t1.getX() <= t2.getX() && t1.getY() <= t2.getY()) {
+				if(acrossFirst) {
+					for(int x = t1.getX();x<=t2.getX();x++) {
+						getAt(x,t1.getY()).walkOn();
+					}
+					for(int y = t1.getY(); y<=t2.getY(); y++) {
+						getAt(t2.getX(),y).walkOn();
+					}
+				}
+				else {
+					for(int y = t1.getY(); y<=t2.getY(); y++) {
+						getAt(t1.getX(),y).walkOn();
+					}
+					for(int x = t1.getX();x<=t2.getX();x++) {
+						getAt(x,t2.getY()).walkOn();
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

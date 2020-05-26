@@ -1,5 +1,7 @@
 package karelQuest;
 
+import java.util.ArrayList;
+
 public class Room {
 	
 	private int corner1X;
@@ -38,5 +40,10 @@ public class Room {
 	
 	public int getCorner2Y() {
 		return corner2Y;
+	}
+	
+	public String toString() {
+		//prints the coordinates of the room's top left and bottom right corners
+		return "(" + corner1X + "," + corner1Y + ") (" + corner2X + "," + corner2Y + ")";
 	}
 }

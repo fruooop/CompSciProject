@@ -15,7 +15,7 @@ public class Draw extends JPanel{
 		
 		//THIS IS ALSO JUST FOR TESTING
 		//CAN PASS A WORKING FLOOR IN
-		floor.generateLayout();
+		//floor.generateLayout();
 		f=floor;
 		repaint();
 	}
@@ -25,7 +25,7 @@ public class Draw extends JPanel{
 		super.paintComponent(g);
 		
 		//
-		System.out.println(f.toString());
+		//System.out.println(f.toString());
 		
 		//THIS IS WHERE KNOWING THE SIZE OF THE FLOOR COULD HELP!
 		for(int i = 0; i< 50; i++) {
