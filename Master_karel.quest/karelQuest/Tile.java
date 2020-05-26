@@ -47,7 +47,8 @@ public class Tile
 		{
 			entityOn = newEntity;
 		}
-		walkable = false;//cannot walk on a tile with an entity
+		//\/Commented out for now, Causes generation issues\/
+		//walkable = false;//cannot walk on a tile with an entity
 		return true;
 	}
 	public Entity getEntity() {return entityOn;}
