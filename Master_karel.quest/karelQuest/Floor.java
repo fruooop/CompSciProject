@@ -36,11 +36,12 @@ public class Floor {
 		
 		//create room around seed, checking that the room does not generate out of bounds.
 		createRoom(makeRoom(seedX,seedY));
-		getAt(seedX,seedY).setEntity(new Player(100,seedX,seedY, "P")); //puts player in room at seed generation
+		getAt(seedX,seedY).setEntity(new Player(100,seedX,seedY,"Player")); //puts player in room at seed
 		while(roomList[roomList.length - 1] == null){
 			createRoom(makeRoom((int)(floor.length * Math.random()),(int)(floor[0].length* Math.random())));
 		}
 		connectRooms();
+		spawnMonsters();
 	}
 	
 	private boolean createRoom(Room r) {
@@ -74,7 +75,7 @@ public class Floor {
 				{
 					s += "X";
 				}
-				else if(getAt(r,c).hasEntity())
+				else if(getAt(r,c).getEntity().equals((Player) getAt(r,c).getEntity()))
 				{
 					s+= "@";
 				}
@@ -267,7 +268,7 @@ public class Floor {
 	}
 	
 	public int[] getDim(){
-			//return dimensions of floor testy test
+			//return dimensions of floor
 			//index 0 has length, index 1 has width
 			int[] temp = {floor.length,floor[0].length};
 			return temp;
@@ -280,8 +281,23 @@ public class Floor {
 		return getAt(x,y);
 	}
 	
-	
-	
+	private void spawnMonsters() {
+		//Pre: there is more than one room
+		//Spawns one monster per room on a random tile in that room, except not in the starting room
+		for (int roomNum = 1; roomNum < roomList.length; roomNum++) {
+			int monsterID = (int) (Math.random() * 2);
+			Tile t;
+			switch(monsterID) {
+				case 0: t = getRandomTileInRoom(roomList[roomNum]);
+				t.setEntity(new Skeleton(20,t.getX(),t.getY(),"Skeleton",0,0)); //probably should change 20, 0, 0 to
+				break;													 //something dependent on floor num
+				case 1: t = getRandomTileInRoom(roomList[roomNum]);
+				t.setEntity(new Zombie(20,t.getX(),t.getY(),"Zombie",0,0)); //probably should change 20, 0, 0 to
+				break;												//something dependent on floor num
+			}
+		}
+	}
+		
 	
 	
 	
