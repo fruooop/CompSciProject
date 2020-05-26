@@ -43,7 +43,7 @@ public class GUI {
 		JButton testHealth = new JButton("Damage Karel");
 		testHealth.setBounds(0, 0, 125, 50);
 		
-		//Damage Karel button
+		//Regenerate Map button
 		JButton regen = new JButton("Regenerate Map");
 		regen.setBounds(125, 0, 125, 50);
 		
@@ -98,14 +98,21 @@ public class GUI {
 		//---------------------------------------------------------//
 		
 		//ActionListener Events
+		regen.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(gameWindow.getHeight());
+				System.out.println(gameWindow.getWidth());
+				Que.draw(d, new Floor(50,20,3));
+			}
+			
+		});
 		testHealth.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				takeDamage(Que, healthBar, kHealth, 8);
-				System.out.println(gameWindow.getHeight());
-				System.out.println(gameWindow.getWidth());
-				Que.draw(d, new Floor(50,20,3));
 			}
 			
 		});
