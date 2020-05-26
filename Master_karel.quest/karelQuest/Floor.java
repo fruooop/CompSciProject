@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Floor {
 
 	private Tile[][] floor;
-	//Test Git COmmit
+	//Test test test
 	//The x and y coordinates of the room generating seed
 	private int seedX;
 	private int seedY;
