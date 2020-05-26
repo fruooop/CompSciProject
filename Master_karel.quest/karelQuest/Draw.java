@@ -25,11 +25,8 @@ public class Draw extends JPanel{
 	//SETTING UP PAINTABLE COMPONENT
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		System.out.println(f.getHeight());
-		//
-		//System.out.println(f.toString());
 		
-		//THIS IS WHERE KNOWING THE SIZE OF THE FLOOR COULD HELP!
+		//Generating and Drawing floor and players
 		for(int i = 0; i< f.getHeight(); i++) {
 			
 			for(int j = 0; j < f.getWidth(); j++) {
