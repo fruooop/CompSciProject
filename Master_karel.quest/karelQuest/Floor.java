@@ -36,7 +36,7 @@ public class Floor {
 		
 		//create room around seed, checking that the room does not generate out of bounds.
 		createRoom(makeRoom(seedX,seedY));
-		getAt(seedX,seedY).setEntity(new Player(100,seedX,seedY));
+		getAt(seedX,seedY).setEntity(new Player(100,seedX,seedY)); //puts player in room at seed generation
 		while(roomList[roomList.length - 1] == null){
 			createRoom(makeRoom((int)(floor.length * Math.random()),(int)(floor[0].length* Math.random())));
 		}
@@ -275,7 +275,9 @@ public class Floor {
 	
 	private Tile getRandomTileInRoom(Room r) {
 		//returns a random Tile in r
-		
+		int x = (int)(Math.random()*(r.getCorner2X()-r.getCorner1X()) + r.getCorner1X());
+		int y = (int)(Math.random()*(r.getCorner2Y()-r.getCorner1Y()) + r.getCorner1Y());
+		return getAt(x,y);
 	}
 	
 	
