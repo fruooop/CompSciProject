@@ -42,6 +42,7 @@ public class Floor {
 		}
 		connectRooms();
 		spawnMonsters();
+		getRandomTileInRoom(roomList[roomList.length-1]).setStairs();//create stairs to the next floor
 	}
 	
 	private boolean createRoom(Room r) {
@@ -86,6 +87,9 @@ public class Floor {
 					else if(getAt(r,c).getEntity().getName().toLowerCase().contains("zombie")) {
 						s+= "Z";
 					}
+				}
+				else if(getAt(r,c).isStairs()) {
+					s+= "/";
 				}
 				else 
 				{
