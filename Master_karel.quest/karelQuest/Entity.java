@@ -5,14 +5,14 @@ public class Entity
 	private int health;
 	private int x;
 	private int y;
-	String s;
+	String name;
 	//constructor
 	public Entity(int sendHealth, int newX, int newY, String newString)
 	{
 		health = sendHealth;
 		x = newX;
 		y = newY;
-		s = newString;
+		name = newString;
 	}
 	public Entity() {}
 	//setters
@@ -31,6 +31,11 @@ public class Entity
 	{
 		y = newY;
 		return newY;
+	}
+	
+	public String getName() {
+		//returns String name
+		return name;
 	}
 	//takes "damage" ammount of damage
 	public int takeDamage(int damage) 

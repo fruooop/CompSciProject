@@ -75,9 +75,17 @@ public class Floor {
 				{
 					s += "X";
 				}
-				else if(getAt(r,c).getEntity().equals((Player) getAt(r,c).getEntity()))
+				else if(getAt(r,c).hasEntity())
 				{
-					s+= "@";
+					if(getAt(r,c).getEntity().getName().toLowerCase().contains("player")) {
+						s+= "@";
+					}
+					else if(getAt(r,c).getEntity().getName().toLowerCase().contains("skeleton")) {
+						s+= "S";
+					}
+					else if(getAt(r,c).getEntity().getName().toLowerCase().contains("zombie")) {
+						s+= "Z";
+					}
 				}
 				else 
 				{
