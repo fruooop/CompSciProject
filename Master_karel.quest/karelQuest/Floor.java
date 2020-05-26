@@ -36,7 +36,7 @@ public class Floor {
 		
 		//create room around seed, checking that the room does not generate out of bounds.
 		createRoom(makeRoom(seedX,seedY));
-		
+		getAt(seedX,seedY).setEntity(new Player(100,seedX,seedY));
 		while(roomList[roomList.length - 1] == null){
 			createRoom(makeRoom((int)(floor.length * Math.random()),(int)(floor[0].length* Math.random())));
 		}
