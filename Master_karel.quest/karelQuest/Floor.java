@@ -297,10 +297,10 @@ public class Floor {
 			Tile t;
 			switch(monsterID) {
 				case 0: t = getRandomTileInRoom(roomList[roomNum]);
-				t.setEntity(new Skeleton(20,t.getX(),t.getY(),"Skeleton",0,0)); //probably should change 20, 0, 0 to
+				t.setEntity(new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName(),0,0)); //probably should change 20, 0, 0 to
 				break;													 //something dependent on floor num
 				case 1: t = getRandomTileInRoom(roomList[roomNum]);
-				t.setEntity(new Zombie(20,t.getX(),t.getY(),"Zombie",0,0)); //probably should change 20, 0, 0 to
+				t.setEntity(new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName(),0,0)); //probably should change 20, 0, 0 to
 				break;												//something dependent on floor num
 			}
 		}
