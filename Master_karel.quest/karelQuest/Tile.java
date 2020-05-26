@@ -47,6 +47,7 @@ public class Tile
 		{
 			entityOn = newEntity;
 		}
+		walkable = false;
 		return true;
 	}
 	public Entity getEntity() {return entityOn;}

@@ -48,4 +48,12 @@ public class Entity
 	public int getHealth() { return health;}
 	public int getX() { return x;}
 	public int getY() { return y;}
+	public void swap(int newX, int newY, Floor f)
+	{
+		Entity e = f.getAt(x, y).getEntity();
+		f.getAt(x, y).setEntity(null);
+		f.getAt(newX, newY).setEntity(e);
+		setY(newY);
+		setX(newX);
+	}
 }
