@@ -266,6 +266,12 @@ public class Floor {
 		}
 	}
 	
+	public int[] getDim(){
+			//return dimensions of floor
+			//index 0 has length, index 1 has width
+			int[] temp = {floor.length,floor[0].length};
+			return temp;
+	}
 	
 	
 	
