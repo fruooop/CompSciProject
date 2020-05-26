@@ -14,6 +14,7 @@ public abstract class Monster extends Entity
 	public void act() {}
 	//monster will move to minimize the distance between the monster and player
 	//pre: distance between monster and player >1 (the tiles are not adjacent)
+	//aaaaaaaaaaaaaaaaaaaaaaaaa
 	public void move(Floor f, Entity player)
 	{
 		int pX = player.getX(); //player positions

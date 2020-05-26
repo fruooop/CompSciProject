@@ -35,7 +35,7 @@ public class Tile
 		//returns whether a player is on a tile or not
 		return entityOn != null;
 	}
-	
+	//aaaaaaaaaaaaaaa
 	public boolean setEntity(Entity newEntity) 
 	{
 		//sets a new player for the tile. returns true if success, false otherwise.
@@ -47,7 +47,7 @@ public class Tile
 		{
 			entityOn = newEntity;
 		}
-		walkable = false;
+		walkable = false;//cannot walk on a tile with an entity
 		return true;
 	}
 	public Entity getEntity() {return entityOn;}

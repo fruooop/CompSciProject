@@ -24,6 +24,7 @@ public class Entity
 		x = newX;
 		return newX;
 	}
+	//aaaaaaaaaaaa
 	public int setY(int newY)
 	{
 		y = newY;
