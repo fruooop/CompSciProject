@@ -99,7 +99,7 @@ public class GUI {
 		
 		//ActionListener Events
 		regen.addActionListener(new ActionListener() {
-
+			//Regenerate Map Button Actions
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(gameWindow.getHeight());
@@ -109,7 +109,7 @@ public class GUI {
 			
 		});
 		testHealth.addActionListener(new ActionListener() {
-
+			//Regenerate Map Button Actions
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				takeDamage(Que, healthBar, kHealth, 8);
