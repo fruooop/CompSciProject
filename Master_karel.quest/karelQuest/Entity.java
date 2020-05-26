@@ -5,12 +5,14 @@ public class Entity
 	private int health;
 	private int x;
 	private int y;
+	String s;
 	//constructor
-	public Entity(int sendHealth, int newX, int newY)
+	public Entity(int sendHealth, int newX, int newY, String newString)
 	{
 		health = sendHealth;
 		x = newX;
 		y = newY;
+		s = newString;
 	}
 	public Entity() {}
 	//setters

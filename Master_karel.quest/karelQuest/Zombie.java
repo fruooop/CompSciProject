@@ -2,9 +2,9 @@ package karelQuest;
 
 public class Zombie extends Monster
 {
-	public Zombie(int sendHealth, int newX, int newY, int newBase, int newRange)
+	public Zombie(int sendHealth, int newX, int newY, String newString, int newBase, int newRange)
 	{
-		super(sendHealth, newX, newY, newBase, newRange);
+		super(sendHealth, newX, newY, newString, newBase, newRange);
 	}
 	//zombie has 2 move as it can only attack if it is adjacent to the player
 	//zombie will act

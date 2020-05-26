@@ -12,9 +12,9 @@ public class Player extends Entity
 	private int x;
 	private int y;
 
-	public Player(int sendHealth, int newX, int newY)
+	public Player(int sendHealth, int newX, int newY, String newString)
 	{
-		super(sendHealth, newX, newY);
+		super(sendHealth, newX, newY, newString);
 		inventory = new ArrayList<Item>();
 		equipped = null;
 		slotIndex = 0;

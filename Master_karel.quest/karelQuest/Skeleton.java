@@ -2,9 +2,9 @@ package karelQuest;
 
 public class Skeleton extends Monster
 {
-	public Skeleton(int sendHealth, int newX, int newY, int newBase, int newRange)
+	public Skeleton(int sendHealth, int newX, int newY, String newString, int newBase, int newRange)
 	{
-		super(sendHealth, newX, newY, newBase, newRange);
+		super(sendHealth, newX, newY, newString, newBase, newRange);
 	}
 	//skeltons have a bow, so they can attack from two blocks away
 	//since they have a ranged attack they can only move once

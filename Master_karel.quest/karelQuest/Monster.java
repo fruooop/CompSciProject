@@ -5,9 +5,9 @@ public abstract class Monster extends Entity
 	private int baseDamage;
 	private int damageRange;
 	
-	public Monster(int sendHealth, int newX, int newY, int newBase, int newRange)
+	public Monster(int sendHealth, int newX, int newY, String newString, int newBase, int newRange)
 	{
-		super(sendHealth, newX, newY);
+		super(sendHealth, newX, newY, newString);
 		baseDamage = newBase;
 		damageRange = newRange;
 	}
