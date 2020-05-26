@@ -5,8 +5,6 @@ import java.awt.*;
 import javax.swing.*;
 
 public class UpdateQue {
-	private Room r;
-	private Room r1;
 	private Player karel = new Player();
 	
 	public UpdateQue(int pHealth) {

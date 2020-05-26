@@ -23,19 +23,29 @@ public class Draw extends JPanel{
 	//SETTING UP PAINTABLE COMPONENT
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
+		System.out.println(f.getHeight());
 		//
 		//System.out.println(f.toString());
 		
 		//THIS IS WHERE KNOWING THE SIZE OF THE FLOOR COULD HELP!
-		for(int i = 0; i< 50; i++) {
+		for(int i = 0; i< f.getHeight(); i++) {
 			
-			for(int j = 0; j < 20; j++) {
+			for(int j = 0; j < f.getWidth(); j++) {
 				
 				if(f.getAt(j, i).isWalkable()) {
-					g.setColor(new Color(209, 209, 224));
-					g.fillRect(i*10, j*10, 10, 10);
+					//If the space is walkable
+					if(f.getAt(j, i).hasEntity()) {
+						//If the space is a player
+						g.setColor(new Color(255, 77, 0));
+						g.fillRect(i*10, j*10, 10, 10);
+					}
+					else {
+						g.setColor(new Color(209, 209, 224));
+						g.fillRect(i*10, j*10, 10, 10);
+					}
+					
 				}
+				
 				else {
 					g.setColor(new Color(118, 118, 162));
 					g.fillRect(i*10, j*10, 10, 10);
