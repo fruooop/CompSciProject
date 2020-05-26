@@ -273,7 +273,10 @@ public class Floor {
 			return temp;
 	}
 	
-	
+	private Tile getRandomTileInRoom(Room r) {
+		//returns a random Tile in r
+		
+	}
 	
 	
 	
