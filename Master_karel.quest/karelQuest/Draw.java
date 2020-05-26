@@ -35,7 +35,7 @@ public class Draw extends JPanel{
 				if(f.getAt(j, i).isWalkable()) {
 					//If the space is walkable
 					if(f.getAt(j, i).hasEntity()) {
-						//If the space is a player
+						//If the space is a players
 						g.setColor(new Color(255, 77, 0));
 						g.fillRect(i*10, j*10, 10, 10);
 					}
