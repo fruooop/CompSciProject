@@ -1,6 +1,6 @@
 package karelQuest;
 
-public abstract class Monster extends Entity
+public  class Monster extends Entity
 {
 	private int baseDamage;
 	private int damageRange;
