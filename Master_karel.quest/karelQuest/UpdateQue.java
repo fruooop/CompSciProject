@@ -19,14 +19,18 @@ public class UpdateQue {
 	public void movePlayer(Floor f, String c) {
 		//SUPPOSE TO FIND PLAYER, but something isn't right
 		try {
-			((Player) f.getAt(f.getSeedX(), f.getSeedX()).getEntity()).move(f, c);
+			f.getPlayer().move(f, c);
+			updateBoard(f);
 		}
 		catch(Exception e){
-			System.out.println("Bruh, Something isnt right");
+			System.out.println("Bruh, Something isn't right");
 		}
 		
 	}
 	
+	private void updateBoard(Floor f) {
+		System.out.println(f);
+	}
 	//Getters
 	public static Player getPlayer() {
 		return karel;

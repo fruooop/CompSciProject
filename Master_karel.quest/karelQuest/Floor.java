@@ -11,7 +11,7 @@ public class Floor {
 	private int seedY;
 	private int maxRooms;
 	private Room[] roomList;
-	private Player player;
+	private Player player; //It's an entity so that setX and setY can be called on it.
 	private final int BASE_ROOM_WIDTH = 5;
 	private final int BASE_ROOM_HEIGHT = 5;
 	private final int ROOM_SIZE_VARIABILITY = 2;

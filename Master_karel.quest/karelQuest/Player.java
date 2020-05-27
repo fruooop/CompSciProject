@@ -9,8 +9,8 @@ public class Player extends Entity
 	private Item equipped;
 	private int slotIndex;
 	private int openSlots;
-	private int x;
-	private int y;
+	//private int x;  USE super.getX() instead
+	//private int y;  USE super.getY() instead
 
 	public Player(int sendHealth, int newX, int newY, String newString)
 	{
@@ -55,46 +55,48 @@ public class Player extends Entity
 	//x and y are the coords of the player to be moved
 	public boolean move(Floor f, String s)
 	{
-		if(f.getAt(x,y).hasEntity())
+		System.out.println(super.getX());
+		System.out.println(super.getY());
+		if(f.getAt(super.getX(),super.getY()).hasEntity())
 		{
-			Entity p = f.getAt(x,y).getEntity();
-			if(s.equals("w") && !f.getAt(x,y-1).hasEntity())
+			Entity p = f.getAt(super.getX(),super.getY()).getEntity();
+			if(s.equals("w") && !f.getAt(super.getX(),super.getY()-1).hasEntity())
 			{
-				if(y != 0)
+				if(super.getY() != 0)
 				{
-					f.getAt(x,y).setEntity(null);
-					setY(y-1);
-					return f.getAt(x,y-1).setEntity(p);
+					f.getAt(super.getX(),super.getY()).setEntity(null);
+					setY(super.getY()-1);
+					return f.getAt(super.getX(),super.getY()-1).setEntity(p);
 				}
 				return false;
 			}
-			if(s.equals("a") && !f.getAt(x-1,y).hasEntity())
+			if(s.equals("a") && !f.getAt(super.getX()-1,super.getX()).hasEntity())
 			{
-				if(x != 0)	
+				if(super.getX() != 0)	
 				{
-					f.getAt(x,y).setEntity(null);
-					setX(x-1);
-					return f.getAt(x-1,y).setEntity(p);
+					f.getAt(super.getX(),super.getY()).setEntity(null);
+					setX(super.getX()-1);
+					return f.getAt(super.getX()-1,super.getY()).setEntity(p);
 				}
 				return false;
 			}
-			if(s.equals("s") && !f.getAt(x,y+1).hasEntity())
+			if(s.equals("s") && !f.getAt(super.getX(),super.getY()+1).hasEntity())
 			{	
-				if(y != f.getHeight() - 1)
+				if(super.getY() != f.getHeight() - 1)
 				{
-					f.getAt(x,y).setEntity(null);
-					setY(y+1);
-					return f.getAt(x,y+1).setEntity(p);
+					f.getAt(super.getX(),super.getY()).setEntity(null);
+					setY(super.getY()+1);
+					return f.getAt(super.getX(),super.getY()+1).setEntity(p);
 				}
 				return false;
 			}
-			if(s.equals("d") && !f.getAt(x+1,y).hasEntity())
+			if(s.equals("d") && !f.getAt(super.getX()+1,super.getY()).hasEntity())
 			{
-				if(x != f.getWidth() - 1)
+				if(super.getX() != f.getWidth() - 1)
 				{
-					f.getAt(x,y).setEntity(null);
-					setX(x+1);
-					return f.getAt(x+1,y).setEntity(p);
+					f.getAt(super.getX(),super.getY()).setEntity(null);
+					setX(super.getX()+1);
+					return f.getAt(super.getX()+1,super.getY()).setEntity(p);
 				}
 				return false;
 			}
@@ -102,5 +104,5 @@ public class Player extends Entity
 		}
 		return false;
 	}
-	
+
 }
