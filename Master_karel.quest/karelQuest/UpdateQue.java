@@ -5,7 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class UpdateQue {
-	//private Player karel = new Player();
+	private static Player karel = new Player(100,0,0,"Player");
 	
 	public UpdateQue(int pHealth) {
 		//BASICALLY USELESS RN, Need to link to actual player health!
@@ -28,8 +28,7 @@ public class UpdateQue {
 	}
 	
 	//Getters
-	public Player getPlayer() {
-		//return karel;
-		return null;
+	public static Player getPlayer() {
+		return karel;
 	}
 }

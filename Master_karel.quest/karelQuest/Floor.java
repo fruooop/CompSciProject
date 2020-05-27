@@ -11,6 +11,7 @@ public class Floor {
 	private int seedY;
 	private int maxRooms;
 	private Room[] roomList;
+	private Player player;
 	private final int BASE_ROOM_WIDTH = 5;
 	private final int BASE_ROOM_HEIGHT = 5;
 	private final int ROOM_SIZE_VARIABILITY = 2;
@@ -36,8 +37,10 @@ public class Floor {
 		
 		//create room around seed, checking that the room does not generate out of bounds.
 		createRoom(makeRoom(seedX,seedY));
-		
-		getAt(seedX,seedY).setEntity(new Player(100,seedX,seedY,"Player")); //puts player in room at seed
+		player = UpdateQue.getPlayer();
+		player.setX(seedX);
+		player.setY(seedY);
+		getAt(seedX,seedY).setEntity(player); //puts player in room at seed
 		while(roomList[roomList.length - 1] == null){
 			createRoom(makeRoom((int)(floor.length * Math.random()),(int)(floor[0].length* Math.random())));
 		}
@@ -334,7 +337,10 @@ public class Floor {
 	}
 		
 	
-	
+	public Player getPlayer() {
+		//returns player
+		return player;
+	}
 	
 	
 	
