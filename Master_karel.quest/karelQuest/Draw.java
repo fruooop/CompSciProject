@@ -8,6 +8,7 @@ public class Draw extends JPanel{
 	//THIS IS JUST FOR TESTING
 	Floor f;
 	Color BLACK = new Color(0,0,0);
+	Color defStairColor = new Color(125, 93, 38);
 	Color defPlayerColor = new Color(255, 77, 0);
 	Color defBackgroundColor = new Color(209, 209, 224);
 	Color defWallColor = new Color(118, 118, 162);
@@ -22,6 +23,7 @@ public class Draw extends JPanel{
 		//CAN PASS A WORKING FLOOR IN
 		//floor.generateLayout();
 		f=floor;
+		System.out.println(f.toString());
 		repaint();
 	}
 	
@@ -49,7 +51,7 @@ public class Draw extends JPanel{
 						}
 						
 						if(f.getAt(j,i).getEntity().getName().toLowerCase().contains("skeleton")) {
-							//Removes background color from player
+							//Removes background color from entity
 							g.setColor(defBackgroundColor);
 							g.fillRect(i*10, j*10, 10, 10);
 							
@@ -69,6 +71,15 @@ public class Draw extends JPanel{
 						}
 						
 						
+					}
+					else if(f.getAt(j,i).isStairs()) {
+						//Removes background color from entity
+						g.setColor(BLACK);
+						g.fillRect(i*10, j*10, 10, 10);
+						
+						//Makes player
+						g.setColor(defStairColor);
+						g.fillRect(i*10+2, j*10+2, 6, 6);
 					}
 					else {
 						g.setColor(defBackgroundColor);

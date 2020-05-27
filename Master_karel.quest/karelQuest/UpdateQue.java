@@ -14,6 +14,9 @@ public class UpdateQue {
 	public void draw(Draw d, Floor f) {
 		d.Drawing(f);
 	}
+	public void movePlayer(Floor f, String c) {
+		((Player) f.getAt(f.getSeedX(), f.getSeedX()).getEntity()).move(f, c);
+	}
 	
 	//Getters
 	public Player getPlayer() {
