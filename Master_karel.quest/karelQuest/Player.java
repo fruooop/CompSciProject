@@ -20,7 +20,7 @@ public class Player extends Entity
 		slotIndex = 0;
 		openSlots = 5;
 	}
-	public Player() {}
+
 	//pre: switches the currently held item
 	//slotNumber < 6
 	//post returns the item switched to
