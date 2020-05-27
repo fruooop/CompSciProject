@@ -87,7 +87,7 @@ public class GUI {
 		JFrame gameWindow = new JFrame("Game"); //!
 		gameWindow.setPreferredSize(new Dimension(gWidth, gHeight));//!
 		Draw d = new Draw();
-		
+		d.setBlockScale(10);
 		
 		gameWindow.add(d);
 				
