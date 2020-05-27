@@ -5,11 +5,11 @@ import java.awt.*;
 import javax.swing.*;
 
 public class UpdateQue {
-	private Player karel = new Player();
+	//private Player karel = new Player();
 	
 	public UpdateQue(int pHealth) {
 		//BASICALLY USELESS RN, Need to link to actual player health!
-		karel.setHealth(pHealth);
+		//karel.setHealth(pHealth);
 	}
 	
 	public void draw(Draw d, Floor f) {
@@ -29,6 +29,7 @@ public class UpdateQue {
 	
 	//Getters
 	public Player getPlayer() {
-		return karel;
+		//return karel;
+		return null;
 	}
 }

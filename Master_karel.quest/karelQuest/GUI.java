@@ -67,9 +67,9 @@ public class GUI {
 		
 		//Element Setup
 		healthBar.setMaximum(startingHealth);
-		healthBar.setValue(Que.getPlayer().getHealth());
+		//healthBar.setValue(Que.getPlayer().getHealth());
 		kHealth.setEditable(false);
-		kHealth.setText(Integer.toString(Que.getPlayer().getHealth()));
+		//kHealth.setText(Integer.toString(Que.getPlayer().getHealth()));
 		//Adding Elements to Frame
 		//frame.add(contentPane);
 		frame.add(regen);
