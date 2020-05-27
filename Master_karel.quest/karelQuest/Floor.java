@@ -36,6 +36,7 @@ public class Floor {
 		
 		//create room around seed, checking that the room does not generate out of bounds.
 		createRoom(makeRoom(seedX,seedY));
+		
 		getAt(seedX,seedY).setEntity(new Player(100,seedX,seedY,"Player")); //puts player in room at seed
 		while(roomList[roomList.length - 1] == null){
 			createRoom(makeRoom((int)(floor.length * Math.random()),(int)(floor[0].length* Math.random())));
@@ -323,10 +324,10 @@ public class Floor {
 			Tile t;
 			switch(monsterID) {
 				case 0: t = getRandomTileInRoom(roomList[roomNum]);
-				t.setEntity(new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName(),0,0)); //probably should change 20, 0, 0 to
+				t.setEntity(new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName())); //probably should change 20, 0, 0 to
 				break;													 //something dependent on floor num
 				case 1: t = getRandomTileInRoom(roomList[roomNum]);
-				t.setEntity(new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName(),0,0)); //probably should change 20, 0, 0 to
+				t.setEntity(new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName())); //probably should change 20, 0, 0 to
 				break;												//something dependent on floor num
 			}
 		}
