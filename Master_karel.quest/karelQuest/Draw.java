@@ -20,6 +20,8 @@ public class Draw extends JPanel{
 	
 	public void setBlockScale(int scale) {
 		blockScale = scale;
+		smallBlockScale = (int) ((.6)*blockScale);
+		offsetScale = (int) ((.2)*blockScale);
 	}
 	public void Drawing(Floor floor) {
 		//PRE: a Floor object
