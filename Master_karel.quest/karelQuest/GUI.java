@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
@@ -57,7 +58,12 @@ public class GUI {
 		JProgressBar healthBar = new JProgressBar();
 		healthBar.setBounds(100, 50, 175, 50);
 		
+		JSpinner secretSpinner = new JSpinner();
+		secretSpinner.setBounds(0, 200, 50, 50);
+		secretSpinner.setValue(Integer.valueOf(10));
 		
+		JButton ehButton = new JButton("eh");
+		ehButton.setBounds(50, 200, 200, 50);
 		
 		//Element Setup
 		healthBar.setMaximum(startingHealth);
@@ -70,6 +76,8 @@ public class GUI {
 		frame.add(healthBar);
 		frame.add(kHealth);
 		frame.add(testHealth);
+		frame.add(secretSpinner);
+		frame.add(ehButton);
 		
 		
 		//Setting frame behavior
@@ -117,6 +125,16 @@ public class GUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				takeDamage(Que, healthBar, kHealth, 8);
+			}
+			
+		});
+		ehButton.addActionListener(new ActionListener() {
+			//Regenerate Map Button Actions
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				d.setBlockScale((Integer)secretSpinner.getValue());
+				f = new Floor(50,20,3);
+				Que.draw(d, f);
 			}
 			
 		});
