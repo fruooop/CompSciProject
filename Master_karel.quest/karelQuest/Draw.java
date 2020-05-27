@@ -5,8 +5,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Draw extends JPanel{
-	//THIS IS JUST FOR TESTING BACKUP BRANCH
 	Floor f;
+	
+	//Color Declaration
 	Color BLACK = new Color(0,0,0);
 	Color defStairColor = new Color(125, 93, 38);
 	Color defPlayerColor = new Color(255, 77, 0);
@@ -14,14 +15,29 @@ public class Draw extends JPanel{
 	Color defWallColor = new Color(118, 118, 162);
 	Color defZombieColor = new Color(0, 255, 102);
 	Color defSkeletonColor = new Color(65, 85, 95);
-	int blockScale = 20;
+	
+	//Pixel/block size
+	int blockScale = 10;
 	int smallBlockScale = (int) ((.6)*blockScale);
 	int offsetScale = (int) ((.2)*blockScale);
 	
+	//Background Width/Height
+	int bgW = (50*blockScale)+20;
+	int bgH = (20*blockScale)+50;
+	
 	public void setBlockScale(int scale) {
+		//Sets the scale of the pixels (default scale: 10 -> 10px X 10px)
 		blockScale = scale;
 		smallBlockScale = (int) ((.6)*blockScale);
 		offsetScale = (int) ((.2)*blockScale);
+		setMapBGSize();
+	}
+	
+	private void setMapBGSize() {
+		//Resizes the background of the map to fit the screen size (the +100 is arbitrary,
+		//I was just annoyed at it not working)
+		bgH = (f.getWidth()*blockScale)+f.getHeight()+100;
+		bgW = (f.getHeight()*blockScale)+f.getWidth()+100;
 	}
 	public void Drawing(Floor floor) {
 		//PRE: a Floor object
@@ -39,6 +55,10 @@ public class Draw extends JPanel{
 	//SETTING UP PAINTABLE COMPONENT
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+		//Sets up map wall background
+		g.setColor(defWallColor);
+		g.fillRect(0, 0, bgW, bgH);
 		
 		//Generating and Drawing floor and players
 		for(int i = 0; i< f.getHeight(); i++) {
@@ -64,17 +84,17 @@ public class Draw extends JPanel{
 							g.setColor(defBackgroundColor);
 							g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 							
-							//Makes player
+							//Makes entity
 							g.setColor(defSkeletonColor);
 							g.fillRect(i*blockScale+offsetScale, j*blockScale+offsetScale, smallBlockScale, smallBlockScale);
 						}
 						
 						if(f.getAt(j,i).getEntity().getName().toLowerCase().contains("zombie")) {
-							//Removes background color from player
+							//Removes background color from entity
 							g.setColor(defBackgroundColor);
 							g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 							
-							//Makes player
+							//Makes entity
 							g.setColor(defZombieColor);
 							g.fillRect(i*blockScale+offsetScale, j*blockScale+offsetScale, smallBlockScale, smallBlockScale);
 						}
@@ -86,11 +106,12 @@ public class Draw extends JPanel{
 						g.setColor(BLACK);
 						g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 						
-						//Makes player
+						//Makes entity
 						g.setColor(defStairColor);
 						g.fillRect(i*blockScale+offsetScale, j*blockScale+offsetScale, smallBlockScale, smallBlockScale);
 					}
 					else {
+						//Makes empty color
 						g.setColor(defBackgroundColor);
 						g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 					}
@@ -98,6 +119,7 @@ public class Draw extends JPanel{
 				}
 				
 				else {
+					//Wall color
 					g.setColor(defWallColor);
 					g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 				}

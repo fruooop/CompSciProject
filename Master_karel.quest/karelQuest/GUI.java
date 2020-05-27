@@ -18,13 +18,19 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 public class GUI {
-	static Floor f = new Floor(50,20,3);
+	static int blockScale = 10;
+	static int fWidth = 50;
+	static int fHeight = 20;
+	static int rooms = 3;
+	static Floor f = new Floor(fWidth,fHeight,rooms);
+	static int gHeight = (fHeight*blockScale)+fWidth; //Fancy math for calculating gameWindow Height
+	static int gWidth = (fWidth*blockScale) + fHeight; //Fancy math for calculating gameWindow Width
 	public static void main(String[] args) {
 		//---------------------------------------------------------//
 		
 		//Settings Variables
 		int height = 139; int width = 290;
-		int gHeight = 238; int gWidth = 516;
+		
 		int startingHealth = 100;
 		
 		//Class declaration
@@ -58,10 +64,12 @@ public class GUI {
 		JProgressBar healthBar = new JProgressBar();
 		healthBar.setBounds(100, 50, 175, 50);
 		
+		//Secret Spinner, Dont touch!
 		JSpinner secretSpinner = new JSpinner();
 		secretSpinner.setBounds(0, 200, 50, 50);
 		secretSpinner.setValue(Integer.valueOf(10));
 		
+		//Secret Button, Dont touch!
 		JButton ehButton = new JButton("eh");
 		ehButton.setBounds(50, 200, 200, 50);
 		
@@ -95,7 +103,6 @@ public class GUI {
 		JFrame gameWindow = new JFrame("Game"); //!
 		gameWindow.setPreferredSize(new Dimension(gWidth, gHeight));//!
 		Draw d = new Draw();
-		d.setBlockScale(10);
 		
 		gameWindow.add(d);
 				
@@ -115,13 +122,13 @@ public class GUI {
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println(frame.getHeight());
 				//System.out.println(frame.getWidth());
-				f = new Floor(50,20,3);
+				f = new Floor(fWidth,fHeight,rooms);
 				Que.draw(d, f);
 			}
 			
 		});
 		testHealth.addActionListener(new ActionListener() {
-			//Regenerate Map Button Actions
+			//TestHealth Button Actions
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				takeDamage(Que, healthBar, kHealth, 8);
@@ -129,11 +136,23 @@ public class GUI {
 			
 		});
 		ehButton.addActionListener(new ActionListener() {
-			//Regenerate Map Button Actions
-			@Override
+			//eh Button Actions
 			public void actionPerformed(ActionEvent e) {
-				d.setBlockScale((Integer)secretSpinner.getValue());
-				f = new Floor(50,20,3);
+				//sets blockscale to spinner value
+				blockScale = (Integer)secretSpinner.getValue();
+				d.setBlockScale(blockScale);
+				
+				//sets height based on new scale
+				gHeight = (fHeight*blockScale)+fWidth;
+				gWidth = (fWidth*blockScale) + fHeight;
+				
+				//Generates new floor based on new scale and size
+				f = new Floor(fWidth,fHeight,rooms);
+				
+				//resizes window
+				gameWindow.setSize(new Dimension(gWidth, gHeight));
+				
+				//Redraws Stuff
 				Que.draw(d, f);
 			}
 			
