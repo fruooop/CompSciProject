@@ -108,6 +108,28 @@ public class Floor {
 		//returns the tile at floor[x][y]
 		return floor[x][y];
 	}
+	//returns the room at x, y
+	//pre: x, y are inside the floor and there are rooms on the floor
+	//post returns the room at x,y if x,y are in a room or null otherwise
+	public Room getRoomAt(int x, int y)
+	{
+		if(roomList.length != 0 && x < floor.length && y < floor[0].length)//there are rooms, and the x and y coords are inside the floor
+		{
+			boolean found = false;
+			int i = 0;
+			while(!found && i < roomList.length)
+			{
+				found = roomList[i].isInRoom(x,y);
+				i++;
+			}
+			if(found)
+			{
+				return roomList[i-1];
+			}
+			return null;
+		}
+		return null;
+	}
 	
 	private Room makeRoom(int centerX, int centerY) {
 		//Creates a room around the given point, with size determined from the final variables above.
