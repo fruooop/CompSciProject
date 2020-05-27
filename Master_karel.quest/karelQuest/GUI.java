@@ -19,8 +19,8 @@ import javax.swing.SpringLayout;
 
 public class GUI {
 	static int blockScale = 10;
-	static int fWidth = 50;
-	static int fHeight = 20;
+	static int fWidth = 75;
+	static int fHeight = 30;
 	static int rooms = 3;
 	static Floor f = new Floor(fWidth,fHeight,rooms);
 	static int gHeight = (fHeight*blockScale)+fWidth; //Fancy math for calculating gameWindow Height
@@ -147,7 +147,7 @@ public class GUI {
 				gWidth = (fWidth*blockScale) + fHeight;
 				
 				//Generates new floor based on new scale and size
-				f = new Floor(fWidth,fHeight,rooms);
+				//f = new Floor(fWidth,fHeight,rooms);
 				
 				//resizes window
 				gameWindow.setSize(new Dimension(gWidth, gHeight));

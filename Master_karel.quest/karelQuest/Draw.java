@@ -22,8 +22,8 @@ public class Draw extends JPanel{
 	int offsetScale = (int) ((.2)*blockScale);
 	
 	//Background Width/Height
-	int bgW = (50*blockScale)+20;
-	int bgH = (20*blockScale)+50;
+	int bgW = (50*blockScale)+100;
+	int bgH = (20*blockScale)+100;
 	
 	public void setBlockScale(int scale) {
 		//Sets the scale of the pixels (default scale: 10 -> 10px X 10px)
@@ -48,6 +48,7 @@ public class Draw extends JPanel{
 		//CAN PASS A WORKING FLOOR IN
 		//floor.generateLayout();
 		f=floor;
+		setMapBGSize();
 		System.out.println(f.toString());
 		repaint();
 	}
