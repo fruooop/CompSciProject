@@ -152,7 +152,7 @@ public class GUI {
 				//resizes window
 				gameWindow.setSize(new Dimension(gWidth, gHeight));
 				
-				//Redraws Stuff
+				//Redraws Stuffs
 				Que.draw(d, f);
 			}
 			

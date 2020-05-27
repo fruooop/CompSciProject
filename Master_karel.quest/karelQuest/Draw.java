@@ -56,7 +56,7 @@ public class Draw extends JPanel{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		//Sets up map wall background
+		//Sets up map wall backgrounds
 		g.setColor(defWallColor);
 		g.fillRect(0, 0, bgW, bgH);
 		
