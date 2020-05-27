@@ -5,7 +5,7 @@ public class Entity
 	private int health;
 	private int x;
 	private int y;
-	String name;
+	private String name;
 	//constructor
 	public Entity(int sendHealth, int newX, int newY, String newString)
 	{
