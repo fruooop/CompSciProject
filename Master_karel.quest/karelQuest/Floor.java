@@ -337,7 +337,10 @@ public class Floor {
 	}
 		
 	
-	
+	public Player getPlayer() {
+		//returns player
+		return player;
+	}
 	
 	
 	
