@@ -7,7 +7,6 @@ public class Tile
 	private int yCoord;
 	private boolean walkable;
 	private Entity entityOn;
-	private boolean isStairs;
 	
 	public Tile(boolean walk, int x, int y)
 	{
@@ -36,7 +35,7 @@ public class Tile
 		//returns whether a player is on a tile or not
 		return entityOn != null;
 	}
-
+	//aaaaaaaaaaaaaaa
 	public boolean setEntity(Entity newEntity) 
 	{
 		//sets a new player for the tile. returns true if success, false otherwise.
@@ -51,16 +50,6 @@ public class Tile
 		//\/Commented out for now, Causes generation issues\/
 		//walkable = false;//cannot walk on a tile with an entity
 		return true;
-	}
-	
-	public void setStairs() {
-		//Sets this tile to be a staircase to the next floor.
-		isStairs = true;
-	}
-	
-	public boolean isStairs() {
-		//returns isStairs
-		return isStairs;
 	}
 	public Entity getEntity() {return entityOn;}
 	public int getX() {
