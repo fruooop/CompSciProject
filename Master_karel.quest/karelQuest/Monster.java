@@ -22,8 +22,8 @@ public  class Monster extends Entity
 	{
 		int pX = player.getX(); //player positions
 		int pY = player.getY();
-		int mX = getX(); //monster position
-		int mY = getY();
+		int mX = super.getX(); //monster position
+		int mY = super.getY();
 		if(f.getRoomAt(mX, mY).equals(f.getRoomAt(pX, pY)))//they are in the same room
 		{
 			int numMoves = moves;
