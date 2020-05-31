@@ -325,10 +325,10 @@ public class Floor {
 		//Pre: there is more than one room
 		//Spawns one monster per room on a random tile in that room, except not in the starting room
 		//and adds each to the newly initialized monsterList
+		monsterList = new ArrayList<Monster>();
 		for (int roomNum = 1; roomNum < roomList.length; roomNum++) {
 			int monsterID = (int) (Math.random() * 2);
 			Tile t;
-			monsterList = new ArrayList<Monster>();
 			switch(monsterID) {
 				case 0: t = getRandomTileInRoom(roomList[roomNum]);
 				Monster m0 = new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName());
