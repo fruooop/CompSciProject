@@ -66,8 +66,6 @@ public class Player extends Entity
 			{
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setX(super.getX()-1);
-				System.out.println(super.getX());
-				System.out.println(super.getY());
 				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
 			if(s.equals("a") 
@@ -77,8 +75,6 @@ public class Player extends Entity
 			{
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setY(super.getY()-1);
-				System.out.println(super.getX());
-				System.out.println(super.getY());
 				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}	
 			if(s.equals("s")
@@ -88,8 +84,6 @@ public class Player extends Entity
 			{
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setX(super.getX()+1);
-				System.out.println(super.getX());
-				System.out.println(super.getY());
 				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
 			if(s.equals("d") 
@@ -99,8 +93,6 @@ public class Player extends Entity
 			{	
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setY(super.getY()+1);
-				System.out.println(super.getX());
-				System.out.println(super.getY());
 				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
 			return false;
