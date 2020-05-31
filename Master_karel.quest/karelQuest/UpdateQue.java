@@ -20,17 +20,13 @@ public class UpdateQue {
 		//Moves the player on floor f based on keyboard input
 		try {
 			f.getPlayer().move(f, input);
-			updateBoard(f);
 		}
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");
 		}
 		takeOtherActions();
 	}
-	
-	private void updateBoard(Floor f) {
-		System.out.println(f);
-	}
+
 	//Getters
 	public static Player getPlayer() {
 		return karel;

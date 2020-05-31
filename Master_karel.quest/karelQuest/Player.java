@@ -55,8 +55,7 @@ public class Player extends Entity
 	//x and y are the coords of the player to be moved
 	public boolean move(Floor f, String s)
 	{
-		System.out.println(super.getX());
-		System.out.println(super.getY());
+
 		if(f.getAt(super.getX(),super.getY()).hasEntity())
 		{
 			Entity p = f.getAt(super.getX(),super.getY()).getEntity();
@@ -67,7 +66,9 @@ public class Player extends Entity
 			{
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setX(super.getX()-1);
-				return f.getAt(super.getX()-1,super.getY()).setEntity(p);
+				System.out.println(super.getX());
+				System.out.println(super.getY());
+				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
 			if(s.equals("a") 
 					&& f.getAt(super.getX(),super.getY()-1) != null
@@ -76,7 +77,9 @@ public class Player extends Entity
 			{
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setY(super.getY()-1);
-				return f.getAt(super.getX(),super.getY()-1).setEntity(p);
+				System.out.println(super.getX());
+				System.out.println(super.getY());
+				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}	
 			if(s.equals("s")
 					&& f.getAt(super.getX()+1,super.getY()) != null
@@ -85,7 +88,9 @@ public class Player extends Entity
 			{
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setX(super.getX()+1);
-				return f.getAt(super.getX()+1,super.getY()).setEntity(p);
+				System.out.println(super.getX());
+				System.out.println(super.getY());
+				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
 			if(s.equals("d") 
 					&& f.getAt(super.getX(),super.getY()+1) != null
@@ -94,7 +99,9 @@ public class Player extends Entity
 			{	
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setY(super.getY()+1);
-				return f.getAt(super.getX(),super.getY()+1).setEntity(p);
+				System.out.println(super.getX());
+				System.out.println(super.getY());
+				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
 			return false;
 		}
