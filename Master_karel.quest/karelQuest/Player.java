@@ -60,49 +60,44 @@ public class Player extends Entity
 		if(f.getAt(super.getX(),super.getY()).hasEntity())
 		{
 			Entity p = f.getAt(super.getX(),super.getY()).getEntity();
-			if(s.equals("w") && !f.getAt(super.getX(),super.getY()-1).hasEntity())
+			if(s.equals("w") 
+					&& f.getAt(super.getX(),super.getY()-1) != null
+					&& !f.getAt(super.getX(),super.getY()-1).hasEntity() 
+					&& f.getAt(super.getX(),super.getY()-1).isWalkable())
 			{
-				if(super.getY() != 0)
-				{
-					f.getAt(super.getX(),super.getY()).setEntity(null);
-					setY(super.getY()-1);
-					return f.getAt(super.getX(),super.getY()-1).setEntity(p);
-				}
-				return false;
+				f.getAt(super.getX(),super.getY()).setEntity(null);
+				setY(super.getY()-1);
+				return f.getAt(super.getX(),super.getY()-1).setEntity(p);
 			}
-			if(s.equals("a") && !f.getAt(super.getX()-1,super.getX()).hasEntity())
+			if(s.equals("a") 
+					&& f.getAt(super.getX()-1,super.getY()) != null 
+					&& !f.getAt(super.getX()-1,super.getY()).hasEntity() 
+					&& f.getAt(super.getX()-1,super.getY()).isWalkable())
 			{
-				if(super.getX() != 0)	
-				{
-					f.getAt(super.getX(),super.getY()).setEntity(null);
-					setX(super.getX()-1);
-					return f.getAt(super.getX()-1,super.getY()).setEntity(p);
-				}
-				return false;
+				f.getAt(super.getX(),super.getY()).setEntity(null);
+				setX(super.getX()-1);
+				return f.getAt(super.getX()-1,super.getY()).setEntity(p);
 			}
-			if(s.equals("s") && !f.getAt(super.getX(),super.getY()+1).hasEntity())
+			if(s.equals("s") 
+					&& f.getAt(super.getX(),super.getY()+1) != null
+					&& !f.getAt(super.getX(),super.getY()+1).hasEntity()
+					&& f.getAt(super.getX(),super.getY()+1).isWalkable())
 			{	
-				if(super.getY() != f.getHeight() - 1)
-				{
-					f.getAt(super.getX(),super.getY()).setEntity(null);
-					setY(super.getY()+1);
-					return f.getAt(super.getX(),super.getY()+1).setEntity(p);
-				}
-				return false;
+				f.getAt(super.getX(),super.getY()).setEntity(null);
+				setY(super.getY()+1);
+				return f.getAt(super.getX(),super.getY()+1).setEntity(p);
 			}
-			if(s.equals("d") && !f.getAt(super.getX()+1,super.getY()).hasEntity())
+			if(s.equals("d")
+					&& f.getAt(super.getX()+1,super.getY()) != null
+					&& !f.getAt(super.getX()+1,super.getY()).hasEntity() 
+					&& f.getAt(super.getX() + 1,super.getY()).isWalkable())
 			{
-				if(super.getX() != f.getWidth() - 1)
-				{
-					f.getAt(super.getX(),super.getY()).setEntity(null);
-					setX(super.getX()+1);
-					return f.getAt(super.getX()+1,super.getY()).setEntity(p);
-				}
-				return false;
+				f.getAt(super.getX(),super.getY()).setEntity(null);
+				setX(super.getX()+1);
+				return f.getAt(super.getX()+1,super.getY()).setEntity(p);
 			}
 			return false;
 		}
 		return false;
 	}
-
 }
