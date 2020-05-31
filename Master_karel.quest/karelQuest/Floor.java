@@ -125,11 +125,12 @@ public class Floor {
 			while(!found && i < roomList.length)
 			{
 				found = roomList[i].isInRoom(x,y);
-				i++;
+				if(!found)
+					i++;
 			}
 			if(found)
 			{
-				return roomList[i-1];
+				return roomList[i];
 			}
 			return null;
 		}
