@@ -16,16 +16,16 @@ public class UpdateQue {
 		//Draws the floor using the draw class (Basically a shortcut)
 		d.Drawing(f);
 	}
-	public void movePlayer(Floor f, String c) {
-		//SUPPOSE TO FIND PLAYER, but something isn't right
+	public void movePlayer(Floor f, String input) {
+		//Moves the player on floor f based on keyboard input
 		try {
-			f.getPlayer().move(f, c);
+			f.getPlayer().move(f, input);
 			updateBoard(f);
 		}
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");
 		}
-		
+		takeOtherActions();
 	}
 	
 	private void updateBoard(Floor f) {
@@ -34,5 +34,9 @@ public class UpdateQue {
 	//Getters
 	public static Player getPlayer() {
 		return karel;
+	}
+	
+	private void takeOtherActions() {
+		//takes actions that occur after the player takes an action. eg) monsters move and attack, 
 	}
 }

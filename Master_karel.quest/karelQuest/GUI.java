@@ -19,9 +19,9 @@ import javax.swing.SpringLayout;
 
 public class GUI {
 	static int blockScale = 10;
-	static int fWidth = 75;
-	static int fHeight = 30;
-	static int rooms = 3;
+	static int fWidth = 50;
+	static int fHeight = 20;
+	static int rooms = 5;
 	static Floor f = new Floor(fWidth,fHeight,rooms);
 	static int gHeight = (fHeight*blockScale)+fWidth; //Fancy math for calculating gameWindow Height
 	static int gWidth = (fWidth*blockScale) + fHeight; //Fancy math for calculating gameWindow Width
@@ -169,6 +169,7 @@ public class GUI {
 	          public void keyPressed(KeyEvent e) {
 	        	  System.out.println("Pressed " + e.getKeyChar());
 	        	  Que.movePlayer(f, Character.toString(e.getKeyChar()));
+	        	  Que.draw(d, f);
 	          }
 	        });
 	}
