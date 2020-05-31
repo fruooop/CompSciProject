@@ -1,6 +1,7 @@
 package karelQuest;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -24,7 +25,7 @@ public class UpdateQue {
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");
 		}
-		takeOtherActions();
+		takeOtherActions(f);
 	}
 
 	//Getters
@@ -32,7 +33,11 @@ public class UpdateQue {
 		return karel;
 	}
 	
-	private void takeOtherActions() {
+	private void takeOtherActions(Floor f) {
 		//takes actions that occur after the player takes an action. eg) monsters move and attack, 
+		ArrayList<Monster> temp = f.getMonList();
+		for(Monster m : temp) {
+			m.act(f,f.getPlayer());
+		}
 	}
 }

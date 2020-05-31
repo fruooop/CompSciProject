@@ -11,7 +11,8 @@ public class Floor {
 	private int seedY;
 	private int maxRooms;
 	private Room[] roomList;
-	private Player player; //It's an entity so that setX and setY can be called on it.
+	private Player player;
+	private ArrayList<Monster> monsterList;
 	private final int BASE_ROOM_WIDTH = 5;
 	private final int BASE_ROOM_HEIGHT = 5;
 	private final int ROOM_SIZE_VARIABILITY = 2;
@@ -322,16 +323,22 @@ public class Floor {
 	private void spawnMonsters() {
 		//Pre: there is more than one room
 		//Spawns one monster per room on a random tile in that room, except not in the starting room
+		//and adds each to the newly initialized monsterList
 		for (int roomNum = 1; roomNum < roomList.length; roomNum++) {
 			int monsterID = (int) (Math.random() * 2);
 			Tile t;
+			monsterList = new ArrayList<Monster>();
 			switch(monsterID) {
 				case 0: t = getRandomTileInRoom(roomList[roomNum]);
-				t.setEntity(new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName())); //probably should change 20, 0, 0 to
-				break;													 //something dependent on floor num
+				Monster m0 = new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName());
+				t.setEntity(m0);
+				monsterList.add(m0);
+				break;
 				case 1: t = getRandomTileInRoom(roomList[roomNum]);
-				t.setEntity(new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName())); //probably should change 20, 0, 0 to
-				break;												//something dependent on floor num
+				Monster m1 = new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName());
+				t.setEntity(m1);
+				monsterList.add(m1);
+				break;												
 			}
 		}
 	}
@@ -342,7 +349,10 @@ public class Floor {
 		return player;
 	}
 	
-	
+	public ArrayList<Monster> getMonList() {
+		//returns monsterList
+		return monsterList;
+	}
 	
 	
 	

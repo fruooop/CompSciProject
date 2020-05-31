@@ -40,7 +40,7 @@ public  class Monster extends Entity
 	}
 	//monster will move to minimize the distance between the monster and player
 	//pre: distance between monster and player >1 (the tiles are not adjacent)
-	public void move(Floor f, Entity player)
+	private void move(Floor f, Entity player)
 	{
 		int pX = player.getX(); //player positions
 		int pY = player.getY();
@@ -70,11 +70,11 @@ public  class Monster extends Entity
 		}
 	}
 	//the player is close enough to attack
-	public boolean isInRange(Entity player)
+	private boolean isInRange(Entity player)
 	{
 		return Math.abs(getX() - player.getX()) < range + 1 && Math.abs(getY() - player.getY()) < range + 1;
 	}
-	public void attack(Entity player) 
+	private void attack(Entity player) 
 	{
 		player.takeDamage(baseDamage + (int)(Math.random() * (damageRange + 1)));
 	}
