@@ -394,6 +394,7 @@ public class Floor {
 		for (Monster m: monsterList) {
 			if (m.getHealth() <= 0) {
 				getAt(m.getX(),m.getY()).setEntity(null);
+				monsterList.remove(m);
 			}
 		}
 	}
