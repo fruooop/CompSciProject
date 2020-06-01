@@ -338,15 +338,16 @@ public class Floor {
 		monsterList = new ArrayList<Monster>();
 		for (int roomNum = 1; roomNum < roomList.length; roomNum++) {
 			int monsterID = (int) (Math.random() * 2);
-			Tile t;
+			Tile t = getRandomTileInRoom(roomList[roomNum]);
+			while (t.hasEntity()) {
+				t = getRandomTileInRoom(roomList[roomNum]);
+			}
 			switch(monsterID) {
-				case 0: t = getRandomTileInRoom(roomList[roomNum]);
-				Monster m0 = new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName());
+				case 0: Monster m0 = new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName());
 				t.setEntity(m0);
 				monsterList.add(m0);
 				break;
-				case 1: t = getRandomTileInRoom(roomList[roomNum]);
-				Monster m1 = new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName());
+				case 1: Monster m1 = new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName());
 				t.setEntity(m1);
 				monsterList.add(m1);
 				break;												
