@@ -17,6 +17,7 @@ public class Player extends Entity
 		inventory = new ArrayList<Item>();
 		slotIndex = -1;
 		openSlots = 5;
+		inventory.add(new Weapon("Starting Sword", 10, 5, 1));
 	}
 
 	//pre: switches the currently held item
