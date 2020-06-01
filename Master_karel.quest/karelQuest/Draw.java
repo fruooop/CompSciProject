@@ -135,6 +135,11 @@ public class Draw extends JPanel{
 					g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 				}
 				
+				
+				//PLAYER HEALTH HERE!!!
+				
+				g.setColor(BLACK);
+				g.drawString(f.getPlayer().toString(), 0, 10);
 			}
 		}
 	}
