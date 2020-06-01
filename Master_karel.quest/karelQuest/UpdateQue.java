@@ -41,6 +41,12 @@ public class UpdateQue {
 			{
 				f.getPlayer().use(f);
 			}
+			else if(input.equals("r")) {
+				if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {
+					karel = f.getPlayer();
+					f = new Floor(fHeight,fWidth,rooms);
+				}
+			}
 			else if(Integer.parseInt(input)>=0 &&
 					Integer.parseInt(input) < f.getPlayer().getInventorySize())
 			{
