@@ -61,6 +61,7 @@ public class Draw extends JPanel{
 		g.setColor(defWallColor);
 		g.fillRect(0, 0, bgW, bgH);
 		
+		
 		//Generating and Drawing floor and players
 		for(int i = 0; i< f.getHeight(); i++) {
 			
@@ -130,6 +131,13 @@ public class Draw extends JPanel{
 					g.setColor(defWallColor);
 					g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 				}
+				
+				
+				
+				//PLAYER HEALTH HERE!!!
+				
+				g.setColor(BLACK);
+				g.drawString(f.getPlayer().toString(), 0, 10);
 				
 			}
 		}
