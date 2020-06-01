@@ -50,6 +50,8 @@ public class Player extends Entity
 			{
 				Potion p = (Potion)inventory.get(slotIndex);
 				takeDamage(p.use());
+				inventory.remove(slotIndex);
+				slotIndex = 0;
 			}
 		}
 	}
