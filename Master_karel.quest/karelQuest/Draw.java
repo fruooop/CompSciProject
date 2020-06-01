@@ -155,9 +155,9 @@ public class Draw extends JPanel{
 				
 				
 				g.setColor(PINK);
-				g.fillRect(2, (f.getWidth()*blockScale)+blockScale*3, 100, blockScale);
+				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*3, 100, blockScale);
 				g.setColor(RED);
-				g.fillRect(2, (f.getWidth()*blockScale)+blockScale*3, f.getPlayer().getHealth(), blockScale);
+				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*3, f.getPlayer().getHealth(), blockScale);
 				
 			}
 		}
