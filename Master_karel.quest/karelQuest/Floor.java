@@ -48,8 +48,8 @@ public class Floor {
 		}
 		connectRooms();
 		spawnMonsters();
-		getRandomTileInRoom(roomList[roomList.length-1]).setStairs();//create stairs to the next floor
 		generateItems();
+		getRandomTileInRoom(roomList[roomList.length-1]).setStairs();//create stairs to the next floor
 	}
 	
 	private boolean createRoom(Room r) {
@@ -328,6 +328,11 @@ public class Floor {
 		//returns a random Tile in r
 		int x = (int)(Math.random()*(r.getCorner2X()-r.getCorner1X()) + r.getCorner1X());
 		int y = (int)(Math.random()*(r.getCorner2Y()-r.getCorner1Y()) + r.getCorner1Y());
+		while(getAt(x,y).hasItem() && getAt(x,y).hasEntity())
+		{
+			x = (int)(Math.random()*(r.getCorner2X()-r.getCorner1X()) + r.getCorner1X());
+			y = (int)(Math.random()*(r.getCorner2Y()-r.getCorner1Y()) + r.getCorner1Y());
+		}
 		return getAt(x,y);
 	}
 	
@@ -405,7 +410,7 @@ public class Floor {
 				else
 				{
 					i++;
-				}
+				} 
 			}
 		}
 	}
