@@ -15,6 +15,7 @@ public class Draw extends JPanel{
 	Color defWallColor = new Color(118, 118, 162);
 	Color defZombieColor = new Color(0, 255, 102);
 	Color defSkeletonColor = new Color(65, 85, 95);
+	Color defItemColor = new Color(255, 255, 0);
 	
 	//Pixel/block size
 	int blockScale = 10;
@@ -101,6 +102,15 @@ public class Draw extends JPanel{
 						}
 						
 						
+					}
+					else if(f.getAt(j, i).hasItem())
+					{
+						g.setColor(defBackgroundColor);
+						g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
+						
+						//Makes entity
+						g.setColor(defItemColor);
+						g.fillRect(i*blockScale+offsetScale, j*blockScale+offsetScale, smallBlockScale, smallBlockScale);
 					}
 					else if(f.getAt(j,i).isStairs()) {
 						//Removes background color from entity
