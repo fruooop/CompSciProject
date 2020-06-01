@@ -163,9 +163,11 @@ public class GUI {
 	          public void keyReleased(KeyEvent e) {}
 
 	          public void keyPressed(KeyEvent e) {
-	        	  System.out.println("Pressed " + e.getKeyChar());
-	        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
-	        	  que.draw(d, UpdateQue.getFloor());
+	        	  if(!UpdateQue.isDead()) {
+	        		  System.out.println("Pressed " + e.getKeyChar());
+		        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
+		        	  que.draw(d, UpdateQue.getFloor());
+	        	  }
 	          }
 	        });
 	}
