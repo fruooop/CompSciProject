@@ -119,7 +119,7 @@ public class GUI {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(frame.getHeight());
 				System.out.println(frame.getWidth());
-				que.regenerateRoom(d);
+				que.regenerateRoom();
 			}
 			
 		});

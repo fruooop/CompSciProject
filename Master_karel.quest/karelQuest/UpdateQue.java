@@ -11,6 +11,7 @@ public class UpdateQue {
 	private static int fHeight = 20;
 	private static int rooms = 5;
 	private static Floor f = new Floor(fWidth,fHeight,rooms);
+	Draw dr;
 	
 	public UpdateQue(int pHealth) {
 		//BASICALLY USELESS RN, Need to link to actual player health!
@@ -19,12 +20,17 @@ public class UpdateQue {
 	
 	public void draw(Draw d, Floor f) {
 		//Draws the floor using the draw class (Basically a shortcut)
+		dr = d;
 		d.Drawing(f);
 	}
-	public boolean regenerateRoom(Draw d) {
-		f = new Floor(fWidth,fHeight,rooms);
-		draw(d, f);
-		return true;
+	public boolean regenerateRoom() {
+		if(!(dr == null)) {
+			f = new Floor(fWidth,fHeight,rooms);
+			draw(dr, f);
+			return true;
+		}
+		return false;
+		
 	}
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
@@ -49,7 +55,7 @@ public class UpdateQue {
 			else if(input.equals("r")) {
 				if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {
 					karel = f.getPlayer();
-					f = new Floor(fHeight,fWidth,rooms);
+					regenerateRoom();
 				}
 			}
 			else if(Integer.parseInt(input)>=0 &&
