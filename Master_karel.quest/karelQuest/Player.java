@@ -59,7 +59,7 @@ public class Player extends Entity
 	//switches the new item to equipped
 	public boolean pickUp(Item I)
 	{
-		if(openSlots > 0)
+		if(openSlots - 1> 0)
 		{
 			inventory.add(I);
 			openSlots--;
@@ -159,7 +159,9 @@ public class Player extends Entity
 		return inventory.size();
 	}
 	
-	
+	public boolean inventoryFull() {
+		return openSlots - 1<= 0;
+	}
 	
 	
 	
