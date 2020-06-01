@@ -98,6 +98,14 @@ public class Floor {
 				else if(getAt(r,c).isStairs()) {
 					s+= "/";
 				}
+				else if(getAt(r,c).hasItem()) {
+					if(getAt(r,c).getItem().getName().toLowerCase().contains("sword")) {
+						s+= "s";
+					}
+					else if(getAt(r,c).getItem().getName().toLowerCase().contains("bow")) {
+						s+= ")";
+					}
+				}
 				else 
 				{
 					s+= " ";

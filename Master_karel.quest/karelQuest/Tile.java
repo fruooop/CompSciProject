@@ -81,6 +81,10 @@ public class Tile
 		//Sets this tile's item to be i.
 		itemOn = i;
 	}
+
+	public Item getItem() {
+		return itemOn;
+	}
 	
 	
 }
