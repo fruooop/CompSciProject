@@ -388,6 +388,9 @@ public class Floor {
 					//Probably should change based on which room number you are in.
 					getRandomTileInRoom(r).setItem(i);
 					break;
+					case 2: i = new Potion(5,3);
+					getRandomTileInRoom(r).setItem(i);
+					break;
 				}
 			}
 		}
