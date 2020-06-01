@@ -388,6 +388,7 @@ public class Floor {
 		}
 	}
 	
+
 	public void removeDeadMonsters() {
 		//removes monsters whose health is zero from monsterList and the board.
 		for (Monster m: monsterList) {
@@ -396,7 +397,6 @@ public class Floor {
 			}
 		}
 	}
-	
 	
 	
 	
