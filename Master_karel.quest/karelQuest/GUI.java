@@ -19,12 +19,8 @@ import javax.swing.SpringLayout;
 
 public class GUI {
 	static int blockScale = 10;
-	static int fWidth = 50;
-	static int fHeight = 20;
-	static int rooms = 5;
-	static Floor f = new Floor(fWidth,fHeight,rooms);
-	static int gHeight = (fHeight*blockScale)+fWidth; //Fancy math for calculating gameWindow Height
-	static int gWidth = (fWidth*blockScale) + fHeight; //Fancy math for calculating gameWindow Width
+	
+	
 	public static void main(String[] args) {
 		//---------------------------------------------------------//
 		
@@ -40,8 +36,9 @@ public class GUI {
 		
 		
 		
-		UpdateQue Que = new UpdateQue(startingHealth);
-		
+		UpdateQue que = new UpdateQue(startingHealth);
+		int gHeight = (UpdateQue.getFloor().getHeight()*blockScale)+UpdateQue.getFloor().getWidth(); //Fancy math for calculating gameWindow Height
+		int gWidth = (UpdateQue.getFloor().getWidth()*blockScale) + UpdateQue.getFloor().getHeight(); //Fancy math for calculating gameWindow Width
 		//---------------------------------------------------------//
 		//---STUFF FOR frame WINDOW--------------------------------//
 		
@@ -108,7 +105,7 @@ public class GUI {
 				
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameWindow.setVisible(true);
-		Que.draw(d, f);
+		que.draw(d, UpdateQue.getFloor());
 		gameWindow.pack();
 		
 		
@@ -116,22 +113,22 @@ public class GUI {
 		//---------------------------------------------------------//
 		
 		//ActionListener Events
-		regen.addActionListener(new ActionListener() {
+		//regen.addActionListener(new ActionListener() {
 			//Regenerate Map Button Actions
-			@Override
-			public void actionPerformed(ActionEvent e) {
+			//@Override
+		//	public void actionPerformed(ActionEvent e) {
 				//System.out.println(frame.getHeight());
-				//System.out.println(frame.getWidth());
-				f = new Floor(fWidth,fHeight,rooms);
-				Que.draw(d, f);
-			}
-			
-		});
+			//	//System.out.println(frame.getWidth());
+		//		f = new Floor(fWidth,fHeight,rooms);
+	//			Que.draw(d, f);
+		//	}
+	//		
+	//	});
 		testHealth.addActionListener(new ActionListener() {
 			//TestHealth Button Actions
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				takeDamage(Que, healthBar, kHealth, 8);
+				takeDamage(que, healthBar, kHealth, 8);
 			}
 			
 		});
@@ -143,17 +140,17 @@ public class GUI {
 				d.setBlockScale(blockScale);
 				
 				//sets height based on new scale
-				gHeight = (fHeight*blockScale)+fWidth;
-				gWidth = (fWidth*blockScale) + fHeight;
+				int newHeight = (UpdateQue.getFloor().getHeight()*blockScale)+UpdateQue.getFloor().getWidth();
+				int newWidth = (UpdateQue.getFloor().getWidth()*blockScale) + UpdateQue.getFloor().getHeight();
 				
 				//Generates new floor based on new scale and size
 				//f = new Floor(fWidth,fHeight,rooms);
 				
 				//resizes window
-				gameWindow.setSize(new Dimension(gWidth, gHeight));
+				gameWindow.setSize(new Dimension(newWidth, newHeight));
 				
 				//Redraws Stuffs
-				Que.draw(d, f);
+				que.draw(d, UpdateQue.getFloor());
 			}
 			
 		});
@@ -168,8 +165,8 @@ public class GUI {
 
 	          public void keyPressed(KeyEvent e) {
 	        	  System.out.println("Pressed " + e.getKeyChar());
-	        	  Que.movePlayer(f, Character.toString(e.getKeyChar()));
-	        	  Que.draw(d, f);
+	        	  que.movePlayer(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
+	        	  que.draw(d, UpdateQue.getFloor());
 	          }
 	        });
 	}

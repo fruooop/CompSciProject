@@ -7,6 +7,10 @@ import javax.swing.*;
 
 public class UpdateQue {
 	private static Player karel = new Player(100,0,0,"Player");
+	private static int fWidth = 50;
+	private static int fHeight = 20;
+	private static int rooms = 5;
+	private static Floor f = new Floor(fWidth,fHeight,rooms);
 	
 	public UpdateQue(int pHealth) {
 		//BASICALLY USELESS RN, Need to link to actual player health!
@@ -39,5 +43,10 @@ public class UpdateQue {
 		for(Monster m : temp) {
 			m.act(f,f.getPlayer());
 		}
+	}
+	
+	public static Floor getFloor() {
+		//returns floor
+		return f;
 	}
 }
