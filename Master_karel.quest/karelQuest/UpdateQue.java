@@ -34,6 +34,7 @@ public class UpdateQue {
 	}
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
+		input = input.toLowerCase();
 		try {
 			if (input.equals("w") ||
 					input.equals("a") ||
