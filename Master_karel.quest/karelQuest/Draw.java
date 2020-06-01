@@ -8,6 +8,7 @@ public class Draw extends JPanel{
 	Floor f;
 	
 	//Color Declaration
+	Color WHITE = new Color(255, 255, 255);
 	Color BLACK = new Color(0,0,0);
 	Color defStairColor = new Color(125, 93, 38);
 	Color defPlayerColor = new Color(255, 77, 0);
@@ -144,7 +145,7 @@ public class Draw extends JPanel{
 				
 				
 				//PLAYER HEALTH HERE!!!
-				g.setColor(new Color(255, 255, 255));
+				g.setColor(WHITE);
 				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, 13);
 				g.setFont(cSans);
 				g.setColor(BLACK);
