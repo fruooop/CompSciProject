@@ -44,7 +44,7 @@ public  class Monster extends Entity
 		int newX = mX + dX;//desired new x coord
 		int newY = mY + dY;//desired new y coord
 		boolean moved = false;
-		if(Math.abs(xDis) < 6 && Math.abs(yDis) < 6)// within "detection Range" of the Player
+		if(Math.abs(xDis) < aggroRange && Math.abs(yDis) < aggroRange)// within "detection Range" of the Player
 		{
 			if(Math.abs(xDis) >= Math.abs(yDis))//farther away on "x" axis, will try to move this way
 			{
