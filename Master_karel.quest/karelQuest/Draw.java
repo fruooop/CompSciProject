@@ -144,7 +144,8 @@ public class Draw extends JPanel{
 				
 				
 				//PLAYER HEALTH HERE!!!
-				
+				g.setColor(new Color(255, 255, 255));
+				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, 13);
 				g.setFont(cSans);
 				g.setColor(BLACK);
 				g.drawString(f.getPlayer().toString(), 2, f.getWidth()*blockScale+f.getWidth());
