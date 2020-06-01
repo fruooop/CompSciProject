@@ -165,7 +165,7 @@ public class GUI {
 
 	          public void keyPressed(KeyEvent e) {
 	        	  System.out.println("Pressed " + e.getKeyChar());
-	        	  que.movePlayer(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
+	        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
 	        	  que.draw(d, UpdateQue.getFloor());
 	          }
 	        });

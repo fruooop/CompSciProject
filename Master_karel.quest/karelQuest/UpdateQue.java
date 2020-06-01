@@ -21,7 +21,7 @@ public class UpdateQue {
 		//Draws the floor using the draw class (Basically a shortcut)
 		d.Drawing(f);
 	}
-	public void movePlayer(Floor f, String input) {
+	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
 		try {
 			f.getPlayer().move(f, input);
@@ -37,16 +37,24 @@ public class UpdateQue {
 		return karel;
 	}
 	
-	private void takeOtherActions(Floor f) {
-		//takes actions that occur after the player takes an action. eg) monsters move and attack, 
+	private String takeOtherActions(Floor f) {
+		//takes actions that occur after the player takes an action. eg) monsters move and attack
+		//Returns a string with a summary of what is going on.
 		ArrayList<Monster> temp = f.getMonList();
 		for(Monster m : temp) {
 			m.act(f,f.getPlayer());
 		}
+		return buildString(f);
 	}
 	
 	public static Floor getFloor() {
 		//returns floor
 		return f;
+	}
+	
+	private String buildString(Floor f) {
+		//Returns a string with a summary of what is going on.
+		String s = "";
+		return s;
 	}
 }
