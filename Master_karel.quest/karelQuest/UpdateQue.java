@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class UpdateQue {
-	private static Player karel = new Player(100,0,0,"Player");
+	private static Player karel = new Player(100,0,0,"Player " + Utilities.randomName());
 	private static int fWidth = 50;
 	private static int fHeight = 20;
 	private static int rooms = 5;
@@ -46,7 +46,7 @@ public class UpdateQue {
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");
 		}
-		takeOtherActions(f);
+		System.out.println(takeOtherActions(f));
 	}
 
 	//Getters
@@ -62,7 +62,7 @@ public class UpdateQue {
 		for(Monster m : temp) {
 			m.act(f,f.getPlayer());
 		}
-		return buildString(f);
+		return statusString(f);
 	}
 	
 	public static Floor getFloor() {
@@ -70,9 +70,10 @@ public class UpdateQue {
 		return f;
 	}
 	
-	private String buildString(Floor f) {
+	private String statusString(Floor f) {
 		//Returns a string with a summary of what is going on.
 		String s = "";
+		s += f.getPlayer().getName() + " Health: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth();
 		return s;
 	}
 }

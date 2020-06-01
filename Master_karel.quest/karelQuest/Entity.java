@@ -66,4 +66,9 @@ public class Entity
 		setY(newY);
 		setX(newX);
 	}
+	
+	public int getMaxHealth(){
+		return maxHealth;
+	}
+	
 }

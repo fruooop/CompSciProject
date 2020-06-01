@@ -3,7 +3,7 @@ package karelQuest;
 public class Utilities {
 	public static String randomName() {
 		//returns a random name. From https://www.weddingvendors.com/baby-names/popular/1975/.
-		int random = (int)Math.random()*40;
+		int random = (int)(Math.random()*40);
 		switch(random) {
 			case 0: return "Michael";
 			case 1: return "Jason";
