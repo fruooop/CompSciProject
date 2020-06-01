@@ -3,6 +3,7 @@ package karelQuest;
 public class Entity 
 {
 	private int health;
+	private int maxHealth;
 	private int x;
 	private int y;
 	private String name;
@@ -10,6 +11,7 @@ public class Entity
 	public Entity(int sendHealth, int newX, int newY, String newString)
 	{
 		health = sendHealth;
+		maxHealth = health;
 		x = newX;
 		y = newY;
 		name = newString;
