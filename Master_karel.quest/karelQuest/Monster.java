@@ -26,11 +26,9 @@ public  class Monster extends Entity
 		int mY = super.getY();
 		if(f.getRoomAt(mX, mY).equals(f.getRoomAt(pX, pY)))//they are in the same room
 		{
-			int numMoves = moves;
-			while(moves > 0 && !isInRange(player))
+			if(!isInRange(player))
 			{
 				move(f, player);
-				numMoves--;
 			}
 			if(isInRange(player))
 			{
