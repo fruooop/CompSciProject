@@ -6,8 +6,7 @@ public class Player extends Entity
 {
 	//Variables with player
 	private ArrayList<Item> inventory;
-	private Item equipped;
-	private int slotIndex;
+	private int slotIndex; //-1 if there are no items
 	private int openSlots;
 	//private int x;  USE super.getX() instead
 	//private int y;  USE super.getY() instead
@@ -16,8 +15,7 @@ public class Player extends Entity
 	{
 		super(sendHealth, newX, newY, newString);
 		inventory = new ArrayList<Item>();
-		equipped = null;
-		slotIndex = 0;
+		slotIndex = -1;
 		openSlots = 5;
 	}
 
@@ -29,24 +27,34 @@ public class Player extends Entity
 		if((slotNumber <= inventory.size()))
 		{
 			slotIndex = slotNumber - 1;
-			equipped = inventory.get(slotIndex);
-			return equipped;
+			return inventory.get(slotIndex);
 		}
 		else
 			return null;
 	}
-	public int use()
+	public void use(Floor f)
 	{
-		if(equipped != null)
-			return equipped.use();
-		else 
-			return -1;
+		if(slotIndex != -1)
+		{
+			if(inventory.get(slotIndex) instanceof Weapon)
+			{
+				Weapon w = (Weapon)inventory.get(slotIndex);
+				Monster m = findWithinRadius(f, w.getRange());
+				if(m != null)
+				{
+					w.use(m);
+				}
+			}
+		}
 	}
+	//adds item to inventory
+	//switches the new item to equipped
 	public boolean pickUp(Item I)
 	{
 		if(openSlots > 0)
 		{
 			inventory.add(I);
+			slotIndex = inventory.size() - 1;
 			openSlots--;
 			return true;
 		}
@@ -99,4 +107,49 @@ public class Player extends Entity
 		}
 		return false;
 	}
+	//finds entities within a radius r of the player
+	//pre: player is on floor f
+	//post: returns null if no entity is found or the first entity found if there is one
+	public Monster findWithinRadius(Floor f, int r)
+	{
+		ArrayList<Monster> monsters = f.getMonList();
+		if(monsters.size() > 0)
+		{
+			for(int i = 0; i < monsters.size(); i++)
+			{
+				Monster temp = monsters.get(i);
+				if(Math.abs(temp.getX() - super.getX()) < r + 1 && Math.abs(temp.getY() - super.getY()) < r + 1)
+				{
+					return temp;
+				}
+			}
+				return null;
+		}
+		else
+		{
+			return null;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

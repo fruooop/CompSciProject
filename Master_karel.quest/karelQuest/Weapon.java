@@ -25,4 +25,6 @@ public class Weapon extends Item
 		s += super.getName() + "\n" + BaseDamage + "\n" + (BaseDamage + DamageRange);		
 		return s;
 	}
+	//getters
+	public int getRange() {return range;}
 }
