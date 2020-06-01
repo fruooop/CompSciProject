@@ -72,8 +72,12 @@ public class Draw extends JPanel{
 					if(f.getAt(j, i).hasEntity()) {
 						//If the space is an entity
 						if(f.getAt(j,i).getEntity().getName().toLowerCase().contains("player")) {
-							//Removes background color from player
-							g.setColor(defBackgroundColor);
+							if(f.getAt(j, i).isStairs()) {
+								g.setColor(BLACK);
+							}
+							else {
+								g.setColor(defBackgroundColor);
+							}
 							g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 							
 							//Makes player
