@@ -16,6 +16,7 @@ public class Floor {
 	private final int BASE_ROOM_WIDTH = 5;
 	private final int BASE_ROOM_HEIGHT = 5;
 	private final int ROOM_SIZE_VARIABILITY = 2;
+	private final double ITEM_CHANCE = .5; //0 <= ITEM_CHANCE <= 1
 	
 	public Floor(int width, int height, int maxNumRooms) {
 		//Pre: width>=2(BASE_ROOM_WIDTH) + 1, height>=2(BASE_ROOM_HEIGHT) + 1
@@ -48,6 +49,7 @@ public class Floor {
 		connectRooms();
 		spawnMonsters();
 		getRandomTileInRoom(roomList[roomList.length-1]).setStairs();//create stairs to the next floor
+		generateItems();
 	}
 	
 	private boolean createRoom(Room r) {
@@ -355,7 +357,27 @@ public class Floor {
 		return monsterList;
 	}
 	
-	
+	private void generateItems() {
+		//generates items randomly in rooms.
+		for (Room r: roomList) {
+			if(Math.random()<ITEM_CHANCE) {
+				Item i;
+				int itemID = (int)(Math.random()*2);
+				switch (itemID) {
+					case 0: i = new Weapon("Sword " + Utilities.randomName(), 5, 3, 1); //sword with base damage 5,
+																	//damage range 3, and attack range 1.
+																	//Probably should change based on which room number you are in.
+					getRandomTileInRoom(r).setItem(i);
+					break;
+					case 1: i = new Weapon("Bow " + Utilities.randomName(), 5, 3, 3); //bow with base damage 3,
+					//damage range 2, and attack range 3. Yes it outranges the skeleton.
+					//Probably should change based on which room number you are in.
+					getRandomTileInRoom(r).setItem(i);
+					break;
+				}
+			}
+		}
+	}
 	
 	
 	

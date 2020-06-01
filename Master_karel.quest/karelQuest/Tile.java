@@ -8,6 +8,7 @@ public class Tile
 	private boolean walkable;
 	private Entity entityOn;
 	private boolean isStairs;
+	private Item itemOn;
 	
 	public Tile(boolean walk, int x, int y)
 	{
@@ -70,4 +71,16 @@ public class Tile
 	public int getY() {
 		return yCoord;
 	}
+	
+	public boolean hasItem() {
+		//returns whether there is an item on this tile.
+		return itemOn != null;
+	}
+	
+	public void setItem(Item i) {
+		//Sets this tile's item to be i.
+		itemOn = i;
+	}
+	
+	
 }
