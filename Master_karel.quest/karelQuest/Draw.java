@@ -23,6 +23,7 @@ public class Draw extends JPanel{
 	int offsetScale = (int) ((.2)*blockScale);
 	
 	//Background Width/Height
+	Font cSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
 	int bgW = (50*blockScale)+100;
 	int bgH = (20*blockScale)+100;
 	
@@ -39,6 +40,7 @@ public class Draw extends JPanel{
 		//I was just annoyed at it not working)
 		bgH = (f.getWidth()*blockScale)+f.getHeight()+100;
 		bgW = (f.getHeight()*blockScale)+f.getWidth()+100;
+		cSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
 	}
 	public void Drawing(Floor floor) {
 		//PRE: a Floor object
@@ -142,8 +144,9 @@ public class Draw extends JPanel{
 				
 				//PLAYER HEALTH HERE!!!
 				
+				g.setFont(cSans);
 				g.setColor(BLACK);
-				g.drawString(f.getPlayer().toString(), 0, 10);
+				g.drawString(f.getPlayer().toString(), 2, f.getWidth()*blockScale+f.getWidth());
 			}
 		}
 	}
