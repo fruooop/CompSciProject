@@ -57,6 +57,7 @@ public class UpdateQue {
 	private String takeOtherActions(Floor f) {
 		//takes actions that occur after the player takes an action. eg) monsters move and attack
 		//Returns a string with a summary of what is going on.
+		f.removeDeadMonsters();
 		ArrayList<Monster> temp = f.getMonList();
 		for(Monster m : temp) {
 			m.act(f,f.getPlayer());

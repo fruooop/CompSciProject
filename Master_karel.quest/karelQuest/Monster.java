@@ -125,4 +125,5 @@ public  class Monster extends Entity
 			return 1;
 		return 0;
 	}
+	
 }
