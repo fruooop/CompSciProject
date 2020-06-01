@@ -389,12 +389,23 @@ public class Floor {
 	}
 	
 
-	public void removeDeadMonsters() {
-		//removes monsters whose health is zero from monsterList and the board.
-		for (Monster m: monsterList) {
-			if (m.getHealth() <= 0) {
-				getAt(m.getX(),m.getY()).setEntity(null);
-				monsterList.remove(m);
+	public void removeDeadMonsters() 
+	{
+		if(monsterList.size() > 0)
+		{
+			int i = 0;
+			while(i < monsterList.size())
+			{
+				Monster m = monsterList.get(i);
+				if(m.getHealth() == 0)
+				{
+					getAt(m.getX(), m.getY()).setEntity(null);
+					monsterList.remove(i);
+				}
+				else
+				{
+					i++;
+				}
 			}
 		}
 	}
