@@ -8,6 +8,7 @@ public class Draw extends JPanel{
 	Floor f;
 	
 	//Color Declaration
+	Color PINK = new Color(255, 153, 153);
 	Color RED = new Color (255, 0 , 0);
 	Color WHITE = new Color(255, 255, 255);
 	Color BLACK = new Color(0,0,0);
@@ -152,6 +153,9 @@ public class Draw extends JPanel{
 				g.setColor(BLACK);
 				g.drawString(f.getPlayer().toString(), 2, f.getWidth()*blockScale+f.getWidth());
 				
+				
+				g.setColor(PINK);
+				g.fillRect(2, (f.getWidth()*blockScale)+blockScale*3, 100, blockScale);
 				g.setColor(RED);
 				g.fillRect(2, (f.getWidth()*blockScale)+blockScale*3, f.getPlayer().getHealth(), blockScale);
 				
