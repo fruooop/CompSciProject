@@ -45,7 +45,7 @@ public class UpdateQue {
 					Integer.parseInt(input) < f.getPlayer().getInventorySize())
 			{
 				f.getPlayer().switchItem(Integer.parseInt(input));
-			}
+			}//aaaaa
 			
 		}
 		catch(Exception e){

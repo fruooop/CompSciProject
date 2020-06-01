@@ -153,7 +153,7 @@ public class Player extends Entity
 		}
 		return s;
 		
-	}
+	}//aaa
 
 	public int getInventorySize() {
 		return inventory.size();
