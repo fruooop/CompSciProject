@@ -40,13 +40,18 @@ public class Entity
 		return name;
 	}
 	//takes "damage" ammount of damage
+	//passing in a negative damge heals player
 	public int takeDamage(int damage) 
 	{
 		//Pre: an int damage
 		//Post: reduces health variable by damage
-		if(health - damage > 0) 
+		if(health - damage > 0 && health - damage < maxHealth) 
 		{
 			health -= damage;
+		}
+		else if(health - damage > maxHealth)
+		{
+			health = maxHealth;
 		}
 		else 
 		{
