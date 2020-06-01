@@ -376,7 +376,7 @@ public class Floor {
 		for (Room r: roomList) {
 			if(Math.random()<ITEM_CHANCE) {
 				Item i;
-				int itemID = (int)(Math.random()*2);
+				int itemID = (int)(Math.random()*3);
 				switch (itemID) {
 					case 0: i = new Weapon("Sword " + Utilities.randomName(), 5, 3, 1); //sword with base damage 5,
 																	//damage range 3, and attack range 1.
