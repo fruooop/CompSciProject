@@ -11,9 +11,9 @@ public class Potion extends Item
 		baseHeals = newBase;
 		healRange = newRange;
 	}
-	public void use(Player p)
+	public int use(Player p)
 	{
 		int randomHeals = (int) (baseHeals + (Math.random() * (healRange + 1)));
-		p.takeDamage(-randomHeals);
+		return -1;
 	}
 }

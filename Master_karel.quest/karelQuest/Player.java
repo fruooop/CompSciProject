@@ -46,6 +46,11 @@ public class Player extends Entity
 					w.use(m);
 				}
 			}
+			if(inventory.get(slotIndex) instanceof Potion)
+			{
+				Potion p = (Potion)inventory.get(slotIndex);
+				takeDamage(p.use());
+			}
 		}
 	}
 	//adds item to inventory
