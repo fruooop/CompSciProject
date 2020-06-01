@@ -24,7 +24,20 @@ public class UpdateQue {
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
 		try {
-			f.getPlayer().move(f, input);
+			if (input.equals("w") ||
+					input.equals("a") ||
+					input.equals("s") ||
+					input.equals("d"))
+			{
+				f.getPlayer().move(f, input);
+			}
+			else if (input.equals("e")) {
+				if(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem()) {
+					f.getPlayer().pickUp(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).getItem());
+					f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).setItem(null);
+				}
+			}
+			
 		}
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");
