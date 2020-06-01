@@ -146,7 +146,7 @@ public class Draw extends JPanel{
 				}
 				
 				
-				//PLAYER HEALTH HERE!!!
+				//PLAYER HEALTHBAR
 				g.setColor(WHITE);
 				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*3);
 				g.setFont(cSans);
