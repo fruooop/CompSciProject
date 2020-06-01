@@ -7,7 +7,7 @@ public class Potion extends Item
 	
 	public Potion(int newBase, int newRange)
 	{
-		super(true, "Potion");
+		super(true, Utilities.randomPosAdj()+ " Potion");
 		baseHeals = newBase;
 		healRange = newRange;
 	}
