@@ -63,12 +63,17 @@ public class UpdateQue {
 					floorNum++;
 				}
 			}
+			else if(input.equals("z")) {
+				if(!f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs() &&
+						!f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem()) {
+					f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).setItem(f.getPlayer().dropItemEquipped());
+				}
+			}
 			else if(Integer.parseInt(input)>=0 &&
 					Integer.parseInt(input) < f.getPlayer().getInventorySize())
 			{
 				f.getPlayer().switchItem(Integer.parseInt(input));
 			}//aaaaa
-			
 		}
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");

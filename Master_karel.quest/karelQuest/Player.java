@@ -162,9 +162,14 @@ public class Player extends Entity
 	public boolean inventoryFull() {
 		return openSlots - 1<= 0;
 	}
-	
-	
-	
+
+	public Item dropItemEquipped() {
+		Item temp = inventory.remove(slotIndex);
+		if(slotIndex>=inventory.size()) {
+			slotIndex--;
+		}
+		return temp;
+	}
 	
 	
 	
