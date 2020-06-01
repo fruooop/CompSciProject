@@ -73,7 +73,7 @@ public class UpdateQue {
 	private String statusString(Floor f) {
 		//Returns a string with a summary of what is going on.
 		String s = "";
-		s += f.getPlayer().getName() + " Health: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth();
+		s += f.getPlayer().toString();
 		return s;
 	}
 }

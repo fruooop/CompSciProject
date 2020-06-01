@@ -133,6 +133,21 @@ public class Player extends Entity
 		
 	}
 	
+	public String toString() {
+		String s = getName() +":\n";
+		s += "HP " + getHealth() + "/" + getMaxHealth() + "\n";
+		s += "Inventory:\n";
+		for (int num = 0; num<inventory.size(); num++) {
+			s += num + ": ";
+			s += inventory.get(num);
+			if (num == slotIndex) {
+				s += " EQUIPPED";
+			}
+			s += "\n";
+		}
+		return s;
+		
+	}
 
 	
 	
