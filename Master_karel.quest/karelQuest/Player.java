@@ -16,7 +16,7 @@ public class Player extends Entity
 		super(sendHealth, newX, newY, newString);
 		inventory = new ArrayList<Item>();
 		slotIndex = -1;
-		openSlots = 5;
+		openSlots = 4;
 		inventory.add(new Weapon("Starting Sword", 10, 5, 1));
 	}
 
