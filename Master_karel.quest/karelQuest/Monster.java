@@ -48,7 +48,7 @@ public  class Monster extends Entity
 		{
 			if(Math.abs(xDis) >= Math.abs(yDis))//farther away on "x" axis, will try to move this way
 			{
-				if(newX > 0 && newX < f.getWidth())//wont cause out of bounds error
+				if(newX > -1 && newX < f.getWidth())//wont cause out of bounds error
 				{
 					Tile t = f.getAt(newX, mY);
 					if(t.isWalkable() && !t.hasEntity())//the monster can walk on the new desired tile
@@ -58,9 +58,9 @@ public  class Monster extends Entity
 					}
 							
 				}
-				if(!moved)//monster didnt get to move in the desired x direection
+				if(!moved)//monster didnt get to move in the desired x direction
 				{
-					if(newY > 0 && newY < f.getHeight())
+					if(newY > -1 && newY < f.getHeight())
 					{
 						Tile t = f.getAt(mX, newY);
 						if(t.isWalkable() && !t.hasEntity())
@@ -73,7 +73,7 @@ public  class Monster extends Entity
 			}	
 			else// would rather move in y direction
 			{
-				if(newY > 0 && newY < f.getHeight())
+				if(newY > -1 && newY < f.getHeight())
 				{
 					Tile t = f.getAt(mX, newY);
 					if(t.isWalkable() && !t.hasEntity())
@@ -84,7 +84,7 @@ public  class Monster extends Entity
 				}
 				if(!moved)
 				{
-					if(newX > 0 && newX < f.getWidth())//wont cause out of bounds error
+					if(newX > -1 && newX < f.getWidth())//wont cause out of bounds error
 					{
 						Tile t = f.getAt(newX, mY);
 						if(t.isWalkable() && !t.hasEntity())//the monster can walk on the new desired tile
