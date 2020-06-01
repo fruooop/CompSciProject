@@ -113,17 +113,16 @@ public class GUI {
 		//---------------------------------------------------------//
 		
 		//ActionListener Events
-		//regen.addActionListener(new ActionListener() {
+		regen.addActionListener(new ActionListener() {
 			//Regenerate Map Button Actions
-			//@Override
-		//	public void actionPerformed(ActionEvent e) {
-				//System.out.println(frame.getHeight());
-			//	//System.out.println(frame.getWidth());
-		//		f = new Floor(fWidth,fHeight,rooms);
-	//			Que.draw(d, f);
-		//	}
-	//		
-	//	});
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(frame.getHeight());
+				System.out.println(frame.getWidth());
+				que.regenerateRoom(d);
+			}
+			
+		});
 		testHealth.addActionListener(new ActionListener() {
 			//TestHealth Button Actions
 			@Override

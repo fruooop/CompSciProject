@@ -21,6 +21,11 @@ public class UpdateQue {
 		//Draws the floor using the draw class (Basically a shortcut)
 		d.Drawing(f);
 	}
+	public boolean regenerateRoom(Draw d) {
+		f = new Floor(fWidth,fHeight,rooms);
+		draw(d, f);
+		return true;
+	}
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
 		try {
