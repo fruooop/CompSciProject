@@ -37,6 +37,10 @@ public class UpdateQue {
 					f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).setItem(null);
 				}
 			}
+			else if(input.contentEquals("q"))
+			{
+				f.getPlayer().use(f);
+			}
 			
 		}
 		catch(Exception e){
