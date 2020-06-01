@@ -27,7 +27,7 @@ public class Player extends Entity
 	{
 		if((slotNumber <= inventory.size()))
 		{
-			slotIndex = slotNumber - 1;
+			slotIndex = slotNumber;
 			return inventory.get(slotIndex);
 		}
 		else
@@ -55,7 +55,6 @@ public class Player extends Entity
 		if(openSlots > 0)
 		{
 			inventory.add(I);
-			slotIndex = inventory.size() - 1;
 			openSlots--;
 			return true;
 		}
