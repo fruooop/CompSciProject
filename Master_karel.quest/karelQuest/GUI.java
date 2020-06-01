@@ -37,8 +37,8 @@ public class GUI {
 		
 		
 		UpdateQue que = new UpdateQue(startingHealth);
-		int gHeight = (UpdateQue.getFloor().getHeight()*blockScale)+UpdateQue.getFloor().getWidth(); //Fancy math for calculating gameWindow Height
-		int gWidth = (UpdateQue.getFloor().getWidth()*blockScale) + UpdateQue.getFloor().getHeight(); //Fancy math for calculating gameWindow Width
+		int gHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight(); //Fancy math for calculating gameWindow Height
+		int gWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth(); //Fancy math for calculating gameWindow Width
 		//---------------------------------------------------------//
 		//---STUFF FOR frame WINDOW--------------------------------//
 		
@@ -140,8 +140,8 @@ public class GUI {
 				d.setBlockScale(blockScale);
 				
 				//sets height based on new scale
-				int newHeight = (UpdateQue.getFloor().getHeight()*blockScale)+UpdateQue.getFloor().getWidth();
-				int newWidth = (UpdateQue.getFloor().getWidth()*blockScale) + UpdateQue.getFloor().getHeight();
+				int newHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight();
+				int newWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth();
 				
 				//Generates new floor based on new scale and size
 				//f = new Floor(fWidth,fHeight,rooms);
