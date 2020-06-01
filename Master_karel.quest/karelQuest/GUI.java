@@ -37,8 +37,8 @@ public class GUI {
 		
 		
 		UpdateQue que = new UpdateQue(startingHealth);
-		int gHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight()+blockScale; //Fancy math for calculating gameWindow Height
-		int gWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth()+blockScale; //Fancy math for calculating gameWindow Width
+		int gHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight()+blockScale*3; //Fancy math for calculating gameWindow Height
+		int gWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth()+blockScale; //Fancy math for calculating gameWindow Widths
 		//---------------------------------------------------------//
 		//---STUFF FOR frame WINDOW--------------------------------//
 		
@@ -163,11 +163,9 @@ public class GUI {
 	          public void keyReleased(KeyEvent e) {}
 
 	          public void keyPressed(KeyEvent e) {
-	        	  if(!UpdateQue.isDead()) {
-	        		  System.out.println("Pressed " + e.getKeyChar());
-		        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
-		        	  que.draw(d, UpdateQue.getFloor());
-	        	  }
+	        	  System.out.println("Pressed " + e.getKeyChar());
+	        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
+	        	  que.draw(d, UpdateQue.getFloor());
 	          }
 	        });
 	}
