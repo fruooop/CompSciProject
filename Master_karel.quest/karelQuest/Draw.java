@@ -34,6 +34,7 @@ public class Draw extends JPanel{
 		offsetScale = (int) ((.2)*blockScale);
 		setMapBGSize();
 	}
+	//test
 	
 	private void setMapBGSize() {
 		//Resizes the background of the map to fit the screen size (the +100 is arbitrary,
