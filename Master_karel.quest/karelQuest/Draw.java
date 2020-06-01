@@ -130,7 +130,7 @@ public class Draw extends JPanel{
 				}
 				
 				else {
-					//Wall color
+					//Wall colors
 					g.setColor(defWallColor);
 					g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 				}
