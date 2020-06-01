@@ -44,7 +44,8 @@ public class UpdateQue {
 				f.getPlayer().move(f, input);
 			}
 			else if (input.equals("e")) {
-				if(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem()) {
+				if(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem() &&
+						!f.getPlayer().inventoryFull()) {
 					f.getPlayer().pickUp(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).getItem());
 					f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).setItem(null);
 				}
