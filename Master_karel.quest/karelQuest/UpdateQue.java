@@ -11,6 +11,7 @@ public class UpdateQue {
 	private static int fHeight = 20;
 	private static int rooms = 5;
 	private static Floor f = new Floor(fWidth,fHeight,rooms);
+	private static boolean isDead = false;
 	Draw dr;
 	
 	public UpdateQue(int pHealth) {
@@ -70,6 +71,9 @@ public class UpdateQue {
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");
 		}
+		if(f.getPlayer().getHealth()<=0) {
+			isDead = true;
+		}
 		System.out.println(takeOtherActions(f));
 	}
 
@@ -96,8 +100,15 @@ public class UpdateQue {
 	
 	private String statusString(Floor f) {
 		//Returns a string with a summary of what is going on.
-		String s = "";
-		s += f.getPlayer().toString();
-		return s;
+		if (!isDead) {
+			return f.getPlayer().toString();
+		}
+		else {
+			return "SORRY BUT YOU DIED RIP";
+		}
+	}
+	
+	public static boolean isDead() {
+		return isDead;
 	}
 }
