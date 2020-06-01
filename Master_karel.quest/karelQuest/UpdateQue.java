@@ -12,6 +12,7 @@ public class UpdateQue {
 	private static int rooms = 5;
 	private static Floor f = new Floor(fWidth,fHeight,rooms);
 	private static boolean isDead = false;
+	private static int floorNum = 1;
 	Draw dr;
 	
 	public UpdateQue(int pHealth) {
@@ -59,6 +60,7 @@ public class UpdateQue {
 				if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {
 					karel = f.getPlayer();
 					regenerateRoom();
+					floorNum++;
 				}
 			}
 			else if(Integer.parseInt(input)>=0 &&
