@@ -8,6 +8,7 @@ public class Draw extends JPanel{
 	Floor f;
 	
 	//Color Declaration
+	Color WHITE = new Color(255, 255, 255);
 	Color BLACK = new Color(0,0,0);
 	Color defStairColor = new Color(125, 93, 38);
 	Color defPlayerColor = new Color(255, 77, 0);
@@ -23,6 +24,7 @@ public class Draw extends JPanel{
 	int offsetScale = (int) ((.2)*blockScale);
 	
 	//Background Width/Height
+	Font cSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
 	int bgW = (50*blockScale)+100;
 	int bgH = (20*blockScale)+100;
 	
@@ -33,12 +35,14 @@ public class Draw extends JPanel{
 		offsetScale = (int) ((.2)*blockScale);
 		setMapBGSize();
 	}
+	//test
 	
 	private void setMapBGSize() {
 		//Resizes the background of the map to fit the screen size (the +100 is arbitrary,
 		//I was just annoyed at it not working)
 		bgH = (f.getWidth()*blockScale)+f.getHeight()+100;
 		bgW = (f.getHeight()*blockScale)+f.getWidth()+100;
+		cSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
 	}
 	public void Drawing(Floor floor) {
 		//PRE: a Floor object
@@ -72,8 +76,12 @@ public class Draw extends JPanel{
 					if(f.getAt(j, i).hasEntity()) {
 						//If the space is an entity
 						if(f.getAt(j,i).getEntity().getName().toLowerCase().contains("player")) {
-							//Removes background color from player
-							g.setColor(defBackgroundColor);
+							if(f.getAt(j, i).isStairs()) {
+								g.setColor(BLACK);
+							}
+							else {
+								g.setColor(defBackgroundColor);
+							}
 							g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 							
 							//Makes player
@@ -130,11 +138,18 @@ public class Draw extends JPanel{
 				}
 				
 				else {
-					//Wall color
+					//Wall colors
 					g.setColor(defWallColor);
 					g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 				}
 				
+				
+				//PLAYER HEALTH HERE!!!
+				g.setColor(WHITE);
+				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, 13);
+				g.setFont(cSans);
+				g.setColor(BLACK);
+				g.drawString(f.getPlayer().toString(), 2, f.getWidth()*blockScale+f.getWidth());
 			}
 		}
 	}

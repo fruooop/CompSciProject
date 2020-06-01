@@ -11,6 +11,8 @@ public class UpdateQue {
 	private static int fHeight = 20;
 	private static int rooms = 5;
 	private static Floor f = new Floor(fWidth,fHeight,rooms);
+	private static boolean isDead = false;
+	Draw dr;
 	
 	public UpdateQue(int pHealth) {
 		//BASICALLY USELESS RN, Need to link to actual player health!
@@ -19,10 +21,21 @@ public class UpdateQue {
 	
 	public void draw(Draw d, Floor f) {
 		//Draws the floor using the draw class (Basically a shortcut)
+		dr = d;
 		d.Drawing(f);
+	}
+	public boolean regenerateRoom() {
+		if(!(dr == null)) {
+			f = new Floor(fWidth,fHeight,rooms);
+			draw(dr, f);
+			return true;
+		}
+		return false;
+		
 	}
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
+		input = input.toLowerCase();
 		try {
 			if (input.equals("w") ||
 					input.equals("a") ||
@@ -32,19 +45,34 @@ public class UpdateQue {
 				f.getPlayer().move(f, input);
 			}
 			else if (input.equals("e")) {
-				if(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem()) {
+				if(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem() &&
+						!f.getPlayer().inventoryFull()) {
 					f.getPlayer().pickUp(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).getItem());
 					f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).setItem(null);
 				}
 			}
-			else if(input.contentEquals("q"))
+			else if(input.equals("q"))
 			{
 				f.getPlayer().use(f);
 			}
+			else if(input.equals("r")) {
+				if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {
+					karel = f.getPlayer();
+					regenerateRoom();
+				}
+			}
+			else if(Integer.parseInt(input)>=0 &&
+					Integer.parseInt(input) < f.getPlayer().getInventorySize())
+			{
+				f.getPlayer().switchItem(Integer.parseInt(input));
+			}//aaaaa
 			
 		}
 		catch(Exception e){
 			System.out.println("Bruh, Something isn't right");
+		}
+		if(f.getPlayer().getHealth()<=0) {
+			isDead = true;
 		}
 		System.out.println(takeOtherActions(f));
 	}
@@ -72,8 +100,15 @@ public class UpdateQue {
 	
 	private String statusString(Floor f) {
 		//Returns a string with a summary of what is going on.
-		String s = "";
-		s += f.getPlayer().toString();
-		return s;
+		if (!isDead) {
+			return f.getPlayer().toString();
+		}
+		else {
+			return "SORRY BUT YOU DIED RIP";
+		}
+	}
+	
+	public static boolean isDead() {
+		return isDead;
 	}
 }

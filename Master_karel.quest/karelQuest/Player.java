@@ -59,7 +59,7 @@ public class Player extends Entity
 	//switches the new item to equipped
 	public boolean pickUp(Item I)
 	{
-		if(openSlots > 0)
+		if(openSlots - 1> 0)
 		{
 			inventory.add(I);
 			openSlots--;
@@ -74,7 +74,7 @@ public class Player extends Entity
 		if(f.getAt(super.getX(),super.getY()).hasEntity())
 		{
 			Entity p = f.getAt(super.getX(),super.getY()).getEntity();
-			if(s.equals("w") 
+			if(s.equals("w")
 					&& f.getAt(super.getX()-1,super.getY()) != null 
 					&& !f.getAt(super.getX()-1,super.getY()).hasEntity() 
 					&& f.getAt(super.getX()-1,super.getY()).isWalkable())
@@ -83,7 +83,7 @@ public class Player extends Entity
 				setX(super.getX()-1);
 				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
-			if(s.equals("a") 
+			if(s.equals("a")
 					&& f.getAt(super.getX(),super.getY()-1) != null
 					&& !f.getAt(super.getX(),super.getY()-1).hasEntity() 
 					&& f.getAt(super.getX(),super.getY()-1).isWalkable())
@@ -101,7 +101,7 @@ public class Player extends Entity
 				setX(super.getX()+1);
 				return f.getAt(super.getX(),super.getY()).setEntity(p);
 			}
-			if(s.equals("d") 
+			if(s.equals("d")
 					&& f.getAt(super.getX(),super.getY()+1) != null
 					&& !f.getAt(super.getX(),super.getY()+1).hasEntity()
 					&& f.getAt(super.getX(),super.getY()+1).isWalkable())
@@ -153,11 +153,15 @@ public class Player extends Entity
 		}
 		return s;
 		
-	}
+	}//aaa
 
+	public int getInventorySize() {
+		return inventory.size();
+	}
 	
-	
-	
+	public boolean inventoryFull() {
+		return openSlots - 1<= 0;
+	}
 	
 	
 	

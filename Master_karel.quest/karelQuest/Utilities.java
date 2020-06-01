@@ -48,4 +48,24 @@ public class Utilities {
 			default: return "You Messed Up";
 		}
 	}
+	
+	public static String randomPosAdj() {
+		//returns a random adjective that is a synonym for happy. https://www.thesaurus.com/browse/good?s=t.
+		int random = (int)(Math.random()*12);
+		switch(random) {
+			case 0: return "acceptable";
+			case 1: return "excellent";
+			case 2: return "exceptional";
+			case 3: return "favorable";
+			case 4: return "great";
+			case 5: return "marvelous";
+			case 6: return "positive";
+			case 7: return "satisfactory";
+			case 8: return "satisfying";
+			case 9: return "superb";
+			case 10: return "valuable";
+			case 11: return "wonderful";
+			default: return "You Messed Up";
+		}
+	}
 }

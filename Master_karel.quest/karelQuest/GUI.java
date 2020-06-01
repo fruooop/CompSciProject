@@ -32,13 +32,13 @@ public class GUI {
 		//Class declaration
 		JFrame frame = new JFrame("Info");
 		frame.setLayout(null);
-		
+		//test
 		
 		
 		
 		UpdateQue que = new UpdateQue(startingHealth);
-		int gHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight(); //Fancy math for calculating gameWindow Height
-		int gWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth(); //Fancy math for calculating gameWindow Width
+		int gHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight()+blockScale; //Fancy math for calculating gameWindow Height
+		int gWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth()+blockScale; //Fancy math for calculating gameWindow Width
 		//---------------------------------------------------------//
 		//---STUFF FOR frame WINDOW--------------------------------//
 		
@@ -113,17 +113,16 @@ public class GUI {
 		//---------------------------------------------------------//
 		
 		//ActionListener Events
-		//regen.addActionListener(new ActionListener() {
+		regen.addActionListener(new ActionListener() {
 			//Regenerate Map Button Actions
-			//@Override
-		//	public void actionPerformed(ActionEvent e) {
-				//System.out.println(frame.getHeight());
-			//	//System.out.println(frame.getWidth());
-		//		f = new Floor(fWidth,fHeight,rooms);
-	//			Que.draw(d, f);
-		//	}
-	//		
-	//	});
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(frame.getHeight());
+				System.out.println(frame.getWidth());
+				que.regenerateRoom();
+			}
+			
+		});
 		testHealth.addActionListener(new ActionListener() {
 			//TestHealth Button Actions
 			@Override
@@ -164,9 +163,11 @@ public class GUI {
 	          public void keyReleased(KeyEvent e) {}
 
 	          public void keyPressed(KeyEvent e) {
-	        	  System.out.println("Pressed " + e.getKeyChar());
-	        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
-	        	  que.draw(d, UpdateQue.getFloor());
+	        	  if(!UpdateQue.isDead()) {
+	        		  System.out.println("Pressed " + e.getKeyChar());
+		        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
+		        	  que.draw(d, UpdateQue.getFloor());
+	        	  }
 	          }
 	        });
 	}
