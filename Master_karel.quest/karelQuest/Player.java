@@ -162,6 +162,10 @@ public class Player extends Entity
 		return s;
 		
 	}//aaa
+	
+	public ArrayList<Item> getInventoryList(){
+		return inventory;
+	}
 
 	public int getInventorySize() {
 		return inventory.size();

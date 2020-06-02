@@ -34,6 +34,7 @@ public class UpdateQue {
 		return false;
 		
 	}
+	
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
 		input = input.toLowerCase();
@@ -87,6 +88,14 @@ public class UpdateQue {
 	//Getters
 	public static Player getPlayer() {
 		return karel;
+	}
+	
+	public boolean updateInventory(JComboBox itemSelect) {
+		ArrayList<Item> itemList = karel.getInventoryList();
+		for(int i = 0; i < itemList.size(); i++) {
+			itemSelect.addItem(itemList.get(i));
+		}
+		return true;
 	}
 	
 	private String takeOtherActions(Floor f) {
