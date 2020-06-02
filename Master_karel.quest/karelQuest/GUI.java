@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -57,9 +58,16 @@ public class GUI {
 		JTextField kHealth = new JTextField();
 		kHealth.setBounds(0,50,100,50);
 		
+		JComboBox items = new JComboBox();
+		items.setBounds(100, 50, 175, 50);
+		items.addItem("test");
+		
+		/*
 		//Karel health(bar)
 		JProgressBar healthBar = new JProgressBar();
 		healthBar.setBounds(100, 50, 175, 50);
+		*/
+		
 		
 		//Secret Spinner, Dont touch!
 		JSpinner secretSpinner = new JSpinner();
@@ -71,14 +79,15 @@ public class GUI {
 		ehButton.setBounds(50, 200, 200, 50);
 		
 		//Element Setup
-		healthBar.setMaximum(startingHealth);
+		//healthBar.setMaximum(startingHealth);
 		//healthBar.setValue(Que.getPlayer().getHealth());
 		kHealth.setEditable(false);
 		//kHealth.setText(Integer.toString(Que.getPlayer().getHealth()));
 		//Adding Elements to Frame
 		//frame.add(contentPane);
 		frame.add(regen);
-		frame.add(healthBar);
+		frame.add(items);
+		//frame.add(healthBar);
 		frame.add(kHealth);
 		frame.add(testHealth);
 		frame.add(secretSpinner);
@@ -127,9 +136,14 @@ public class GUI {
 			//TestHealth Button Actions
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				takeDamage(que, healthBar, kHealth, 8);
+				//takeDamage(que, healthBar, kHealth, 8);
 			}
 			
+		});
+		items.addActionListener (new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+		        
+		    }
 		});
 		ehButton.addActionListener(new ActionListener() {
 			//eh Button Actions
