@@ -16,4 +16,10 @@ public class Potion extends Item
 		int randomHeals = (int) (baseHeals + (Math.random() * (healRange + 1)));
 		return -1;
 	}
+	
+	public String toString() {
+		String s = "";
+		s+= super.getName() + ", heals " + (-baseHeals) + "+" + (-healRange) + " HP.";
+		return s;
+	}
 }

@@ -105,6 +105,9 @@ public class Floor {
 					else if(getAt(r,c).getItem().getName().toLowerCase().contains("bow")) {
 						s+= ")";
 					}
+					else if(getAt(r,c).getItem().getName().toLowerCase().contains("potion")) {
+						s+= "p";
+					}
 				}
 				else 
 				{

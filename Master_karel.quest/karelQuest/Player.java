@@ -8,6 +8,7 @@ public class Player extends Entity
 	private ArrayList<Item> inventory;
 	private int slotIndex; //-1 if there are no items
 	private int openSlots;
+	private int inventoryMaxSize;
 	//private int x;  USE super.getX() instead
 	//private int y;  USE super.getY() instead
 
@@ -17,6 +18,7 @@ public class Player extends Entity
 		inventory = new ArrayList<Item>();
 		slotIndex = 0;
 		openSlots = 4;
+		inventoryMaxSize = openSlots;
 		inventory.add(new Weapon("Starting Sword", 15,5,1));
 	}
 
@@ -57,11 +59,17 @@ public class Player extends Entity
 	}
 	//adds item to inventory
 	//switches the new item to equipped
-	public boolean pickUp(Item I)
+	public boolean pickUp(Item i)
 	{
+		if(openSlots == inventoryMaxSize) {
+			inventory.add(i);
+			slotIndex = 0;
+			openSlots--;
+			return true;
+		}
 		if(openSlots - 1> 0)
 		{
-			inventory.add(I);
+			inventory.add(i);
 			openSlots--;
 			return true;
 		}
@@ -144,7 +152,7 @@ public class Player extends Entity
 		s += "HP " + getHealth() + "/" + getMaxHealth() + "\n";
 		s += "Inventory:\n";
 		for (int num = 0; num<inventory.size(); num++) {
-			s += num + 1 + ": ";
+			s += num + ": ";
 			s += inventory.get(num);
 			if (num == slotIndex) {
 				s += " EQUIPPED";
@@ -168,6 +176,7 @@ public class Player extends Entity
 		if(slotIndex>=inventory.size()) {
 			slotIndex--;
 		}
+		openSlots++;
 		return temp;
 	}
 	
