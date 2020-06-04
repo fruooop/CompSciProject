@@ -20,7 +20,7 @@ public class Floor {
 	
 	public Floor(int width, int height, int maxNumRooms) {
 		//Pre: width>=2(BASE_ROOM_WIDTH) + 1, height>=2(BASE_ROOM_HEIGHT) + 1
-		//initializes variables and creates a random seed to generate rooms from.
+		//initializes variables and creates a random seed to generate rooms from.a
 		floor = new Tile[height][width];
 		for(int c = 0; c<width; c++) {
 			for(int r = 0; r<height; r++) {

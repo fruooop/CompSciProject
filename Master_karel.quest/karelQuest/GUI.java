@@ -157,7 +157,7 @@ public class GUI {
 				int newWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth()+blockScale;
 				
 				//Generates new floor based on new scale and size
-				//f = new Floor(fWidth,fHeight,rooms);
+				//f = new Floor(fWidth,fHeight,rooms);fdsaf
 				
 				//resizes window
 				gameWindow.setSize(new Dimension(newWidth, newHeight));

@@ -13,7 +13,7 @@ public class Weapon extends Item
 		damageRange = newDamageRange;		
 		range = newRange;
 	}
-	//deals damage within basedamage, basedamage + Damage Range to the monster
+	//deals damage within basedamage, basedamage + Damage Range to the monsterr
 	public int use(Monster m)
 	{
 		int damage = baseDamage + (int)(Math.random() * (damageRange + 1));

@@ -37,7 +37,7 @@ public class Player extends Entity
 	}
 	public String use(Floor f)
 	{
-		//returns a text string saying what happened.
+		//returns a text string saying what happened.dsa
 		String s = "";
 		if(slotIndex != -1)
 		{

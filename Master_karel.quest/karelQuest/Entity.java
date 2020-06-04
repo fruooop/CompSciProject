@@ -76,4 +76,7 @@ public class Entity
 		return maxHealth;
 	}
 	
+	public int heal(int amount) {
+		return 0;
+	}
 }

@@ -88,7 +88,7 @@ public class Utilities {
 	}
 	
 	public static String randomPosReaction() {
-		//returns a random positive reaction. Sourced from my friends from the land down under
+		//returns a random positive reaction. Sourced from my friends from the land down underground
 				int random = (int)(Math.random()*8);
 				switch(random) {
 					case 0: return "Hurrah!";
