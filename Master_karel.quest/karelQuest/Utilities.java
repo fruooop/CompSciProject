@@ -88,7 +88,7 @@ public class Utilities {
 	}
 	
 	public static String randomPosReaction() {
-		//returns a random negative reaction. Sourced from my friends from the land down under
+		//returns a random positive reaction. Sourced from my friends from the land down under
 				int random = (int)(Math.random()*8);
 				switch(random) {
 					case 0: return "Hurrah!";
@@ -99,6 +99,22 @@ public class Utilities {
 					case 5: return "Great!";
 					case 6: return "Excellent!";
 					case 7: return "Above Average!";
+					default: return "You Messed Up";
+				}
+	}
+	
+	public static String randomTastyReaction() {
+		//returns a random negative reaction. Contributed by Gordon Ramsey and Sammy Stringer ig
+				int random = (int)(Math.random()*8);
+				switch(random) {
+					case 0: return "Tasty.";
+					case 1: return "Delicious!";
+					case 2: return "Mmmmmm...";
+					case 3: return "Got potion?";
+					case 4: return "Sweet!";
+					case 5: return "Muy sabroso!";
+					case 6: return "Incredible!";
+					case 7: return "Flavorfully brilliant~";
 					default: return "You Messed Up";
 				}
 	}
