@@ -44,7 +44,7 @@ public class Entity
 	public int takeDamage(int damage) 
 	{
 		//Pre: an int damage
-		//Post: reduces health variable by damage
+		//Post: reduces health variable by damage. returns damage
 		if(health - damage > 0 && health - damage < maxHealth) 
 		{
 			health -= damage;
@@ -57,7 +57,7 @@ public class Entity
 		{
 			health = 0;
 		}
-		return health;
+		return damage;
 	}
 	//getters
 	public int getHealth() { return health;}
@@ -77,6 +77,10 @@ public class Entity
 	}
 	
 	public int heal(int amount) {
-		return 0;
+		health += amount;
+		if (health > maxHealth) {
+			health = maxHealth;
+		}
+		return amount;
 	}
 }
