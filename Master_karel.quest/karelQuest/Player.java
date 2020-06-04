@@ -118,7 +118,7 @@ public class Player extends Entity
 				f.getAt(super.getX(),super.getY()).setEntity(null);
 				setX(super.getX()+1);
 				return f.getAt(super.getX(),super.getY()).setEntity(p);
-			}
+			}//hi sam
 			if(s.equals("d")
 					&& f.getAt(super.getX(),super.getY()+1) != null
 					&& !f.getAt(super.getX(),super.getY()+1).hasEntity()
