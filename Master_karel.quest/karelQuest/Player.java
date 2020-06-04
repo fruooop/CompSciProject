@@ -35,8 +35,10 @@ public class Player extends Entity
 		else
 			return null;
 	}
-	public void use(Floor f)
+	public String use(Floor f)
 	{
+		//returns a text string saying what happened.
+		String s = "";
 		if(slotIndex != -1)
 		{
 			if(inventory.get(slotIndex) instanceof Weapon)
@@ -45,7 +47,10 @@ public class Player extends Entity
 				Monster m = findWithinRadius(f, w.getRange());
 				if(m != null)
 				{
-					w.use(m);
+					s += "You attacked " + m.getName() + " for " + w.use(m) + " damage! " + Utilities.randomPosReaction();
+					if(m.getHealth()<=0) {
+						s+= "\n" +  m.getName() + " slank to the floor in defeat. " + Utilities.randomPosReaction();
+					}
 				}
 			}
 			if(inventory.get(slotIndex) instanceof Potion)
@@ -55,7 +60,9 @@ public class Player extends Entity
 				inventory.remove(slotIndex);
 				slotIndex = 0;
 			}
+			return s;
 		}
+		return "You tried to use something, but you didn't have anything to use! " + Utilities.randomNegReaction();
 	}
 	//adds item to inventory
 	//switches the new item to equipped

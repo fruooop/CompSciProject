@@ -1,3 +1,5 @@
+
+//This class is basically just a thesaurus
 package karelQuest;
 
 public class Utilities {
@@ -53,19 +55,51 @@ public class Utilities {
 		//returns a random adjective that is a synonym for happy. https://www.thesaurus.com/browse/good?s=t.
 		int random = (int)(Math.random()*12);
 		switch(random) {
-			case 0: return "acceptable";
-			case 1: return "excellent";
-			case 2: return "exceptional";
-			case 3: return "favorable";
-			case 4: return "great";
-			case 5: return "marvelous";
-			case 6: return "positive";
-			case 7: return "satisfactory";
-			case 8: return "satisfying";
-			case 9: return "superb";
-			case 10: return "valuable";
-			case 11: return "wonderful";
+			case 0: return "Acceptable";
+			case 1: return "Excellent";
+			case 2: return "Exceptional";
+			case 3: return "Favorable";
+			case 4: return "Great";
+			case 5: return "Marvelous";
+			case 6: return "Positive";
+			case 7: return "Satisfactory";
+			case 8: return "Satisfying";
+			case 9: return "Superb";
+			case 10: return "Valuable";
+			case 11: return "Wonderful";
 			default: return "You Messed Up";
 		}
+	}
+	
+	public static String randomNegReaction() {
+		//returns a random negative reaction. Sourced from my friends down in accounting
+		int random = (int)(Math.random()*8);
+		switch(random) {
+			case 0: return "Aww man!";
+			case 1: return "Darn it!";
+			case 2: return "Noooo!";
+			case 3: return "Bummer!";
+			case 4: return "Curses.";
+			case 5: return "Rats!";
+			case 6: return "Drat!";
+			case 7: return "Hmmmmph...";
+			default: return "You Messed Up";
+		}
+	}
+	
+	public static String randomPosReaction() {
+		//returns a random negative reaction. Sourced from my friends from the land down under
+				int random = (int)(Math.random()*8);
+				switch(random) {
+					case 0: return "Hurrah!";
+					case 1: return "pogChamp";
+					case 2: return "Yay!";
+					case 3: return "Epic Gamer Moment.";
+					case 4: return "Awesome!";
+					case 5: return "Great!";
+					case 6: return "Excellent!";
+					case 7: return "Above Average!";
+					default: return "You Messed Up";
+				}
 	}
 }

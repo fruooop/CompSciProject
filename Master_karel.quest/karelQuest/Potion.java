@@ -14,12 +14,12 @@ public class Potion extends Item
 	public int use(Player p)
 	{
 		int randomHeals = (int) (baseHeals + (Math.random() * (healRange + 1)));
-		return -1;
+		return p.takeDamage(-randomHeals);
 	}
 	
 	public String toString() {
 		String s = "";
-		s+= super.getName() + ", heals " + (-baseHeals) + "+" + (-healRange) + " HP.";
+		s+= super.getName() + ", heals " + (baseHeals) + "+" + (healRange) + " HP.";
 		return s;
 	}
 }

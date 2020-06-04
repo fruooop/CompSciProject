@@ -55,7 +55,7 @@ public class UpdateQue {
 			}
 			else if(input.equals("q"))
 			{
-				f.getPlayer().use(f);
+				System.out.println(f.getPlayer().use(f));
 			}
 			else if(input.equals("r")) {
 				if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {
