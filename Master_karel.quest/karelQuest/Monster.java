@@ -17,21 +17,27 @@ public  class Monster extends Entity
 	}
 	//if the monster and the player occupy the same room, the mosnter will move into range and attack the player if they are close enough 
 	//pre: floor has rooms & monster and player are on the same floor
-	//post: the monster will move towards the player and attempt to attack
-	public void act(Floor f, Player player) 
+	//post: the monster will move towards the player and attempt to attack. A status String is output.
+	public String act(Floor f, Player player) 
 	{
 		if(!isInRange(player))
 		{
-			move(f, player);
+			boolean moved = move(f, player);
+			if (moved) {
+				return super.getName() + " is on your trail.";
+			}
 		}
 		if(isInRange(player))
 		{
-			attack(player);
-		}	
+			
+			return super.getName() + " attacked you, dealing " + attack(player) + " damage! " + Utilities.randomHurtReaction();
+		}
+		return "";
 	}
 	//monster will move to minimize the distance between the monster and player
 	//pre: distance between monster and player >1 (the tiles are not adjacent)
-	private void move(Floor f, Player p)
+	//post: returns whether the monster moved
+	private boolean move(Floor f, Player p)
 	{
 		int pX = p.getX(); //player positions
 		int pY = p.getY();
@@ -96,15 +102,19 @@ public  class Monster extends Entity
 				}
 			}
 		}
+		return moved;
 	}
 	//the player is close enough to attack
 	private boolean isInRange(Entity player)
 	{
 		return Math.abs(getX() - player.getX()) < range + 1 && Math.abs(getY() - player.getY()) < range + 1;
 	}
-	private void attack(Entity player) 
+	private int attack(Entity player) 
 	{
-		player.takeDamage(baseDamage + (int)(Math.random() * (damageRange + 1)));
+		//returns the amount of damage taken.
+		int damage = baseDamage + (int)(Math.random() * (damageRange + 1));
+		player.takeDamage(damage);
+		return damage;
 	}
 	//move helper methods
 	//returns the number to be added to the monsters current X coord to make it closer to the player, 0 if they share a X coord

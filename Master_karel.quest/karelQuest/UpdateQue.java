@@ -104,7 +104,7 @@ public class UpdateQue {
 		f.removeDeadMonsters();
 		ArrayList<Monster> temp = f.getMonList();
 		for(Monster m : temp) {
-			m.act(f,f.getPlayer());
+			System.out.println(m.act(f,f.getPlayer()));
 		}
 		return statusString(f);
 	}

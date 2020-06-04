@@ -104,7 +104,7 @@ public class Utilities {
 	}
 	
 	public static String randomTastyReaction() {
-		//returns a random negative reaction. Contributed by Gordon Ramsey and Sammy Stringer ig
+		//returns a random potion reaction. Contributed by Gordon Ramsey and Sammy Stringer ig
 				int random = (int)(Math.random()*8);
 				switch(random) {
 					case 0: return "Tasty.";
@@ -117,5 +117,22 @@ public class Utilities {
 					case 7: return "Flavorfully brilliant~";
 					default: return "You Messed Up";
 				}
+	}
+	
+	public static String randomHurtReaction() {
+		//returns a random hurt reaction. Contribured by a legion of fish
+		int random = (int)(Math.random()*8);
+		switch(random) {
+			case 0: return "Ouch.";
+			case 1: return "Ow!!";
+			case 2: return "That's gotta hurt.";
+			case 3: return "Yowch!";
+			case 4: return "Mamma Mia!";
+			case 5: return "Owwwwww...";
+			case 6: return "That can't feel good.";
+			case 7: return "OUCH.";
+			default: return "You Messed Up";
+		}
+
 	}
 }
