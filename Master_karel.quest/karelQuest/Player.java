@@ -52,11 +52,12 @@ public class Player extends Entity
 						s+= "\n" +  m.getName() + " slank to the floor in defeat. " + Utilities.randomPosReaction();
 					}
 				}
+				s += "You flailed your weapon wildly, but there was nobody in the area! " + Utilities.randomNegReaction();
 			}
 			if(inventory.get(slotIndex) instanceof Potion)
 			{
 				Potion p = (Potion)inventory.get(slotIndex);
-				takeDamage(p.use());
+				System.out.println(takeDamage(p.use()));
 				inventory.remove(slotIndex);
 				slotIndex = 0;
 			}
