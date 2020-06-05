@@ -44,7 +44,7 @@ public class Draw extends JPanel{
 		//I was just annoyed at it not working)
 		bgH = (f.getWidth()*blockScale)+f.getHeight()+100;
 		bgW = (f.getHeight()*blockScale)+f.getWidth()+100;
-		cSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
+		cSans = new Font("Papyrus", Font.PLAIN, blockScale);
 	}
 	public void Drawing(Floor floor) {
 		//PRE: a Floor object
