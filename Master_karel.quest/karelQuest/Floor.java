@@ -351,11 +351,11 @@ public class Floor {
 				t = getRandomTileInRoom(roomList[roomNum]);
 			}
 			switch(monsterID) {
-				case 0: Monster m0 = new Skeleton(20,t.getX(),t.getY(),"Skeleton " + Utilities.randomName());
+				case 0: Monster m0 = new Skeleton(6 + 2*UpdateQue.getFloorNum(),t.getX(),t.getY(),"Skeleton " + Utilities.randomName());
 				t.setEntity(m0);
 				monsterList.add(m0);
 				break;
-				case 1: Monster m1 = new Zombie(20,t.getX(),t.getY(),"Zombie " + Utilities.randomName());
+				case 1: Monster m1 = new Zombie(8 + 2*UpdateQue.getFloorNum(),t.getX(),t.getY(),"Zombie " + Utilities.randomName());
 				t.setEntity(m1);
 				monsterList.add(m1);
 				break;												
@@ -381,17 +381,17 @@ public class Floor {
 				Item i;
 				int itemID = (int)(Math.random()*3);
 				switch (itemID) {
-					case 0: i = new Weapon("Sword " + Utilities.randomName(), 5, 3, 1); //sword with base damage 5,
+					case 0: i = new Weapon("Sword " + Utilities.randomName(), 4 + UpdateQue.getFloorNum(), 3 + UpdateQue.getFloorNum()/2, 1); //sword with base damage 5,
 																	//damage range 3, and attack range 1.
 																	//Probably should change based on which room number you are in.
 					getRandomTileInRoom(r).setItem(i);
 					break;
-					case 1: i = new Weapon("Bow " + Utilities.randomName(), 5, 3, 3); //bow with base damage 3,
+					case 1: i = new Weapon("Bow " + Utilities.randomName(), 2 + UpdateQue.getFloorNum(), 1 + UpdateQue.getFloorNum()/2, 3); //bow with base damage 3,
 					//damage range 2, and attack range 3. Yes it outranges the skeleton.
 					//Probably should change based on which room number you are in.
 					getRandomTileInRoom(r).setItem(i);
 					break;
-					case 2: i = new Potion(5,3);
+					case 2: i = new Potion(4 + UpdateQue.getFloorNum(), 3 + UpdateQue.getFloorNum()/2);
 					getRandomTileInRoom(r).setItem(i);
 					break;
 				}

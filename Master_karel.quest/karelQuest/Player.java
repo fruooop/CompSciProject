@@ -19,7 +19,7 @@ public class Player extends Entity
 		slotIndex = 0;
 		openSlots = 4;
 		inventoryMaxSize = openSlots;
-		inventory.add(new Weapon("Starting Sword", 15,5,1));
+		inventory.add(new Weapon("Starting Sword", 4,2,1));
 	}
 
 	//pre: switches the currently held item
