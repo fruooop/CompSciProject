@@ -27,6 +27,7 @@ public class UpdateQue {
 	}
 	public boolean regenerateRoom() {
 		if(!(dr == null)) {
+			
 			f = new Floor(fWidth,fHeight,rooms);
 			draw(dr, f);
 			return true;
@@ -34,7 +35,16 @@ public class UpdateQue {
 		return false;
 		
 	}
-	
+	public boolean regenerateRoomNewPlayer() {
+		if(!(dr == null)) {
+			karel = new Player(30,0,0,"Player " + Utilities.randomName());
+			f = new Floor(fWidth,fHeight,rooms);
+			draw(dr, f);
+			isDead = false;
+			return true;
+		}
+		return false;
+	}
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
 		input = input.toLowerCase();
