@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class UpdateQue {
-	private static Player karel = new Player(20,0,0,"Player " + Utilities.randomName());
+	private static Player karel = new Player(30,0,0,"Player " + Utilities.randomName());
 	private static int fWidth = 50;
 	private static int fHeight = 20;
 	private static int rooms = 5;
