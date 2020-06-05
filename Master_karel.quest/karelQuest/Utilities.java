@@ -89,34 +89,34 @@ public class Utilities {
 	
 	public static String randomPosReaction() {
 		//returns a random positive reaction. Sourced from my friends from the land down underground
-				int random = (int)(Math.random()*8);
-				switch(random) {
-					case 0: return "Hurrah!";
-					case 1: return "pogChamp";
-					case 2: return "Yay!";
-					case 3: return "Epic Gamer Moment.";
-					case 4: return "Awesome!";
-					case 5: return "Great!";
-					case 6: return "Excellent!";
-					case 7: return "Above Average!";
-					default: return "You Messed Up";
-				}
+		int random = (int)(Math.random()*8);
+		switch(random) {
+			case 0: return "Hurrah!";
+			case 1: return "pogChamp";
+			case 2: return "Yay!";
+			case 3: return "Epic Gamer Moment.";
+			case 4: return "Awesome!";
+			case 5: return "Great!";
+			case 6: return "Excellent!";
+			case 7: return "Above Average!";				
+			default: return "You Messed Up";
+		}
 	}
 	
 	public static String randomTastyReaction() {
 		//returns a random potion reaction. Contributed by Gordon Ramsey and Sammy Stringer ig
-				int random = (int)(Math.random()*8);
-				switch(random) {
-					case 0: return "Tasty.";
-					case 1: return "Delicious!";
-					case 2: return "Mmmmmm...";
-					case 3: return "Got potion?";
-					case 4: return "Sweet!";
-					case 5: return "Muy sabroso!";
-					case 6: return "Incredible!";
-					case 7: return "Flavorfully brilliant~";
-					default: return "You Messed Up";
-				}
+		int random = (int)(Math.random()*8);
+		switch(random) {
+			case 0: return "Tasty.";
+			case 1: return "Delicious!";
+			case 2: return "Mmmmmm...";
+			case 3: return "Got potion?";
+			case 4: return "Sweet!";
+			case 5: return "Muy sabroso!";
+			case 6: return "Incredible!";
+			case 7: return "Flavorfully brilliant~";
+			default: return "You Messed Up";
+		}
 	}
 	
 	public static String randomHurtReaction() {
@@ -133,6 +133,5 @@ public class Utilities {
 			case 7: return "OUCH.";
 			default: return "You Messed Up";
 		}
-
 	}
 }
