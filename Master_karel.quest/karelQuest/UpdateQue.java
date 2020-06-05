@@ -41,6 +41,7 @@ public class UpdateQue {
 			f = new Floor(fWidth,fHeight,rooms);
 			draw(dr, f);
 			isDead = false;
+			floorNum = 1;
 			return true;
 		}
 		return false;
