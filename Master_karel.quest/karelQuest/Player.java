@@ -158,7 +158,7 @@ public class Player extends Entity
 	}
 	
 	public String toString() {
-		String s = getName() +"\n";
+		String s = getName() + "\tFloor " + UpdateQue.getFloorNum() + "\n";
 		s += "HP " + getHealth() + "/" + getMaxHealth() + "\n";
 		s += "Inventory:\n";
 		for (int num = 0; num<inventory.size(); num++) {

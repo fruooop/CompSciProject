@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class UpdateQue {
-	private static Player karel = new Player(100,0,0,"Player " + Utilities.randomName());
+	private static Player karel = new Player(20,0,0,"Player " + Utilities.randomName());
 	private static int fWidth = 50;
 	private static int fHeight = 20;
 	private static int rooms = 5;
@@ -90,7 +90,7 @@ public class UpdateQue {
 		return karel;
 	}
 	
-	public boolean updateInventory(JComboBox itemSelect) {
+	public boolean updateInventory(JComboBox<Item> itemSelect) {
 		ArrayList<Item> itemList = karel.getInventoryList();
 		for(int i = 0; i < itemList.size(); i++) {
 			itemSelect.addItem(itemList.get(i));
@@ -126,5 +126,9 @@ public class UpdateQue {
 	
 	public static boolean isDead() {
 		return isDead;
+	}
+	
+	public static int getFloorNum() {
+		return floorNum;
 	}
 }
