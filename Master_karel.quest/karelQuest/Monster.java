@@ -6,6 +6,7 @@ public  class Monster extends Entity
 	private int damageRange;
 	private int range;
 	private int aggroRange;//how far away the player must be for the monster to "see" them
+	private double fumbleChance = 1.0/(UpdateQue.getFloorNum() + 2);//how likely it is that the attack will miss
 	
 	public Monster(int sendHealth, int newX, int newY, String newString, int newBase, int newDamageRange, int newRange, int newAggro)
 	{
@@ -13,7 +14,7 @@ public  class Monster extends Entity
 		baseDamage = newBase;
 		damageRange = newDamageRange;
 		range= newRange;
-		aggroRange = newAggro;			
+		aggroRange = newAggro;
 	}
 	//if the monster and the player occupy the same room, the mosnter will move into range and attack the player if they are close enough 
 	//pre: floor has rooms & monster and player are on the same floor
@@ -29,8 +30,13 @@ public  class Monster extends Entity
 		}
 		if(isInRange(player))
 		{
-			
-			return super.getName() + " attacked you, dealing " + attack(player) + " damage! " + Utilities.randomHurtReaction();
+			int damage = attack(player);
+			if(damage != 0) {
+				return super.getName() + " attacks you, dealing " + damage + " damage! " + Utilities.randomHurtReaction();
+			}
+			else {
+				return super.getName() + " tries to attack, but fumbles! " + Utilities.randomPosReaction();
+			}
 		}
 		return "";
 	}
@@ -111,10 +117,13 @@ public  class Monster extends Entity
 	}
 	private int attack(Entity player) 
 	{
-		//returns the amount of damage taken.
-		int damage = baseDamage + (int)(Math.random() * (damageRange + 1));
-		player.takeDamage(damage);
-		return damage;
+		//returns the amount of damage taken, if the attack was not fumbled.
+		if(Math.random() > fumbleChance) {
+			int damage = baseDamage + (int)(Math.random() * (damageRange + 1));
+			player.takeDamage(damage);
+			return damage;
+		}
+		return 0;
 	}
 	//move helper methods
 	//returns the number to be added to the monsters current X coord to make it closer to the player, 0 if they share a X coord
