@@ -8,7 +8,7 @@ public class Player extends Entity
 	private ArrayList<Item> inventory;
 	private int slotIndex; //-1 if there are no items
 	private int openSlots;
-	private int inventoryMaxSize;
+	private int inventoryMaxSize = 4;
 	//private int x;  USE super.getX() instead
 	//private int y;  USE super.getY() instead
 
@@ -16,14 +16,13 @@ public class Player extends Entity
 	{
 		super(sendHealth, newX, newY, newString);
 		inventory = new ArrayList<Item>();
-		slotIndex = 0;
-		openSlots = 4;
-		inventoryMaxSize = openSlots;
 		inventory.add(new Weapon("Starting Sword", 4,2,1));
+		slotIndex = 0;
+		openSlots = 3;
 	}
 
 	//pre: switches the currently held item
-	//slotNumber < 6
+	//slotNumber < 5
 	//post returns the item switched to
 	public Item switchItem(int slotNumber)
 	{
@@ -62,6 +61,7 @@ public class Player extends Entity
 				s += "You quaffed the potion and recovered " + (super.heal(p.use())) + " health. " + Utilities.randomTastyReaction();
 				inventory.remove(slotIndex);
 				slotIndex = 0;
+				openSlots++;
 			}
 			return s;
 		}
@@ -71,14 +71,7 @@ public class Player extends Entity
 	//switches the new item to equipped
 	public boolean pickUp(Item i)
 	{
-		if(openSlots == inventoryMaxSize) {
-			inventory.add(i);
-			slotIndex = 0;
-			openSlots--;
-			return true;
-		}
-		if(openSlots - 1> 0)
-		{
+		if(openSlots > 0) {
 			inventory.add(i);
 			openSlots--;
 			return true;
@@ -182,7 +175,7 @@ public class Player extends Entity
 	}
 	
 	public boolean inventoryFull() {
-		return openSlots - 1<= 0;
+		return openSlots == 0;
 	}
 
 	public Item dropItemEquipped() {
