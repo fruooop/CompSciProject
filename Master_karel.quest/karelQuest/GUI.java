@@ -115,6 +115,7 @@ public class GUI {
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameWindow.setVisible(true);
 		que.draw(d, UpdateQue.getFloor());
+		gameWindow.setResizable(false);
 		gameWindow.pack();
 		
 		
@@ -153,7 +154,7 @@ public class GUI {
 				d.setBlockScale(blockScale);
 				
 				//sets height based on new scale
-				int newHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight()+blockScale*3; //Fancy math for calculating gameWindow Height
+				int newHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight()+blockScale*10; //Fancy math for calculating gameWindow Height
 				int newWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth()+blockScale;
 				
 				//Generates new floor based on new scale and size

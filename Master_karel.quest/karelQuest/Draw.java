@@ -151,10 +151,10 @@ public class Draw extends JPanel{
 				
 				//PLAYER HEALTHBAR
 				g.setColor(WHITE);
-				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*3);
+				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*10);
 				
 				g.setColor(BLACK);
-				g.drawString(f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth(), blockScale/10, f.getWidth()*blockScale+f.getWidth());
+				g.drawString(f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth(), blockScale/10, f.getWidth()*blockScale + f.getWidth());
 				
 				
 				g.setColor(PINK);

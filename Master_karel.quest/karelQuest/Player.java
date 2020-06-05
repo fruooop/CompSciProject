@@ -187,8 +187,18 @@ public class Player extends Entity
 		return temp;
 	}
 	
-	
-	
+	public String itemNumString(int num){
+		//returns the item at a certain inventory number
+		String s = "";
+		if(num<= inventory.size()) {
+			s += num+ 1 + ": ";
+			s += inventory.get(num);
+			if (num == slotIndex) {
+				s += " EQUIPPED";
+			}
+		}
+		return s;
+	}
 	
 	
 	
