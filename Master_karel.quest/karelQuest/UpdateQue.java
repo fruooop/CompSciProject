@@ -38,51 +38,50 @@ public class UpdateQue {
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
 		input = input.toLowerCase();
-		try {
-			if (input.equals("w") ||
-					input.equals("a") ||
-					input.equals("s") ||
-					input.equals("d"))
-			{
-				f.getPlayer().move(f, input);
-			}
-			else if (input.equals("e")) {
-				if(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem() &&
-						!f.getPlayer().inventoryFull()) {
-					f.getPlayer().pickUp(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).getItem());
-					f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).setItem(null);
+		if(!isDead) {
+			try {
+				if (input.equals("w") ||
+						input.equals("a") ||
+						input.equals("s") ||
+						input.equals("d"))
+				{
+					f.getPlayer().move(f, input);
 				}
-			}
-			else if(input.equals("q"))
-			{
-				System.out.println(f.getPlayer().use(f));
-			}
-			else if(input.equals("r")) {
-				if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {
-					karel = f.getPlayer();
-					regenerateRoom();
-					floorNum++;
+				else if (input.equals("e")) {
+					if(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem() &&
+							!f.getPlayer().inventoryFull()) {
+						f.getPlayer().pickUp(f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).getItem());
+						f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).setItem(null);
+					}
 				}
-			}
-			else if(input.equals("z")) {
-				if(!f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs() &&
-						!f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem()) {
-					f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).setItem(f.getPlayer().dropItemEquipped());
+				else if(input.equals("q"))
+				{
+					System.out.println(f.getPlayer().use(f));
 				}
+				else if(input.equals("r")) {
+					if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {
+						karel = f.getPlayer();
+						regenerateRoom();
+						floorNum++;
+					}
+				}
+				else if(input.equals("z")) {
+					if(!f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs() &&
+							!f.getAt(f.getPlayer().getX(), f.getPlayer().getY()).hasItem()) {
+						f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).setItem(f.getPlayer().dropItemEquipped());
+					}
+				}
+				else if(Integer.parseInt(input)>=0 &&
+						Integer.parseInt(input) < f.getPlayer().getInventorySize())
+				{
+					f.getPlayer().switchItem(Integer.parseInt(input));
+				}//aaaaa
 			}
-			else if(Integer.parseInt(input)>=0 &&
-					Integer.parseInt(input) < f.getPlayer().getInventorySize())
-			{
-				f.getPlayer().switchItem(Integer.parseInt(input));
-			}//aaaaa
+			catch(Exception e){
+				System.out.println("Bruh, Something isn't right");
+			}
+			System.out.println(takeOtherActions(f));
 		}
-		catch(Exception e){
-			System.out.println("Bruh, Something isn't right");
-		}
-		if(f.getPlayer().getHealth()<=0) {
-			isDead = true;
-		}
-		System.out.println(takeOtherActions(f));
 	}
 
 	//Getters
@@ -105,6 +104,9 @@ public class UpdateQue {
 		ArrayList<Monster> temp = f.getMonList();
 		for(Monster m : temp) {
 			System.out.println(m.act(f,f.getPlayer()));
+		}
+		if(f.getPlayer().getHealth()<=0) {
+			isDead = true;
 		}
 		return statusString(f);
 	}
