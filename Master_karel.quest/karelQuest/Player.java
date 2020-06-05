@@ -29,7 +29,7 @@ public class Player extends Entity
 	{
 		if((slotNumber <= inventory.size()))
 		{
-			slotIndex = slotNumber;
+			slotIndex = slotNumber - 1;
 			return inventory.get(slotIndex);
 		}
 		else
@@ -162,7 +162,7 @@ public class Player extends Entity
 		s += "HP " + getHealth() + "/" + getMaxHealth() + "\n";
 		s += "Inventory:\n";
 		for (int num = 0; num<inventory.size(); num++) {
-			s += num + ": ";
+			s += num+ 1 + ": ";
 			s += inventory.get(num);
 			if (num == slotIndex) {
 				s += " EQUIPPED";

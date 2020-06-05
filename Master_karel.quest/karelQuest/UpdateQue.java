@@ -72,7 +72,7 @@ public class UpdateQue {
 					}
 				}
 				else if(Integer.parseInt(input)>=0 &&
-						Integer.parseInt(input) < f.getPlayer().getInventorySize())
+						Integer.parseInt(input) <= f.getPlayer().getInventorySize())
 				{
 					f.getPlayer().switchItem(Integer.parseInt(input));
 				}//aaaaa
