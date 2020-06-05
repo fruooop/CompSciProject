@@ -19,7 +19,7 @@ public class Draw extends JPanel{
 	Color defZombieColor = new Color(0, 255, 102);
 	Color defSkeletonColor = new Color(65, 85, 95);
 	Color defItemColor = new Color(255, 255, 0);
-	
+
 	//Pixel/block size
 	int blockScale = 10;
 	int smallBlockScale = (int) ((.6)*blockScale);
@@ -27,8 +27,8 @@ public class Draw extends JPanel{
 	
 	//Background Width/Height
 	Font cSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
-	int bgW = (50*blockScale)+100;
-	int bgH = (20*blockScale)+100;
+	int bgW;
+	int bgH;
 	
 	public void setBlockScale(int scale) {
 		//Sets the scale of the pixels (default scale: 10 -> 10px X 10px)
@@ -154,7 +154,7 @@ public class Draw extends JPanel{
 				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*3);
 				
 				g.setColor(BLACK);
-				g.drawString(f.getPlayer().toString(), 2, f.getWidth()*blockScale+f.getWidth());
+				g.drawString(f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth(), blockScale/10, f.getWidth()*blockScale+f.getWidth());
 				
 				
 				g.setColor(PINK);
