@@ -144,12 +144,15 @@ public class Draw extends JPanel{
 					g.setColor(defWallColor);
 					g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
 				}
-				
+				//Floor num
+				g.setColor(BLACK);
+				g.setFont(cSans);
+				g.drawString("Floor " + UpdateQue.getFloorNum(), blockScale/10, blockScale);
 				
 				//PLAYER HEALTHBAR
 				g.setColor(WHITE);
 				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*3);
-				g.setFont(cSans);
+				
 				g.setColor(BLACK);
 				g.drawString(f.getPlayer().toString(), 2, f.getWidth()*blockScale+f.getWidth());
 				
