@@ -149,12 +149,13 @@ public class Draw extends JPanel{
 				g.setFont(cSans);
 				g.drawString("Floor " + UpdateQue.getFloorNum(), blockScale/10, blockScale);
 				
-				//PLAYER HEALTHBAR
+				//PLAYER HEALTHBAR/Status String
 				g.setColor(WHITE);
 				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*10);
 				
+				String statusBar = f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth() + "  " + f.getPlayer().getInventoryList(); 
 				g.setColor(BLACK);
-				g.drawString(f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth(), blockScale/10, f.getWidth()*blockScale + f.getWidth());
+				g.drawString(statusBar, blockScale/10, f.getWidth()*blockScale + f.getWidth());
 				
 				
 				g.setColor(PINK);
