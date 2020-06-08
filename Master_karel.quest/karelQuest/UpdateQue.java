@@ -13,6 +13,7 @@ public class UpdateQue {
 	private static Floor f = new Floor(fWidth,fHeight,rooms);
 	private static boolean isDead = false;
 	private static int floorNum = 1;
+	private static int points = 0;
 	Draw dr;
 	
 	public UpdateQue(int pHealth) {
@@ -143,5 +144,17 @@ public class UpdateQue {
 	
 	public static int getFloorNum() {
 		return floorNum;
+	}
+	
+	public static int getPoints() {
+		//returns num of points
+		return points;
+	}
+	
+	public static int addPoints(int numPoints) {
+		//adds the number of points to points.
+		//returns the new number of points
+		points += numPoints;
+		return points;
 	}
 }
