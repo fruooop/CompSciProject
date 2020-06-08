@@ -60,7 +60,7 @@ public class GUI {
 		
 		JComboBox items = new JComboBox();
 		items.setBounds(100, 50, 175, 50);
-		items.addItem("test");
+		//items.addItem("test");
 		
 		/*
 		//Karel health(bar)
@@ -142,7 +142,7 @@ public class GUI {
 		});
 		items.addActionListener (new ActionListener () {
 		    public void actionPerformed(ActionEvent e) {
-		        
+		        //que.updateInventory(items);
 		    }
 		});
 		ehButton.addActionListener(new ActionListener() {
@@ -178,6 +178,7 @@ public class GUI {
 
 	          public void keyPressed(KeyEvent e) {
 	        	  System.out.println("Pressed " + e.getKeyChar());
+	        	  que.shimmyInventory();
 	        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
 	        	  que.draw(d, UpdateQue.getFloor());
 	          }

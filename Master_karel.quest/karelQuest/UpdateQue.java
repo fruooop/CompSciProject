@@ -90,11 +90,17 @@ public class UpdateQue {
 		return karel;
 	}
 	
-	public boolean updateInventory(JComboBox itemSelect) {
+	public boolean shimmyInventory() {
 		ArrayList<Item> itemList = karel.getInventoryList();
-		for(int i = 0; i < itemList.size(); i++) {
-			itemSelect.addItem(itemList.get(i));
+		int size = itemList.size() - 1;
+		Item lastItem = itemList.get(size);
+		Item tempItem;
+		for(int i = 0; i < size; i++) {
+			tempItem =itemList.get(i);
+			itemList.add(i, lastItem);
+			lastItem = tempItem;
 		}
+		System.out.println(itemList);
 		return true;
 	}
 	

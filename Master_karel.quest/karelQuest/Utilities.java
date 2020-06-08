@@ -53,7 +53,7 @@ public class Utilities {
 	
 	public static String randomPosAdj() {
 		//returns a random adjective that is a synonym for happy. https://www.thesaurus.com/browse/good?s=t.
-		int random = (int)(Math.random()*12);
+		int random = (int)(Math.random()*13);
 		switch(random) {
 			case 0: return "Acceptable";
 			case 1: return "Excellent";
@@ -67,6 +67,7 @@ public class Utilities {
 			case 9: return "Superb";
 			case 10: return "Valuable";
 			case 11: return "Wonderful";
+			case 12: return "Null Pointer";
 			default: return "You Messed Up";
 		}
 	}
