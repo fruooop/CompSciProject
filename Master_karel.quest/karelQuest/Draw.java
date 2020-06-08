@@ -14,13 +14,13 @@ public class Draw extends JPanel{
 	Color GRAY = new Color(100, 100, 100);
 	Color GRAY2 = new Color(175, 175, 175);
 	Color BLACK = new Color(0,0,0);
-	Color defStairColor = new Color(125, 93, 38);
-	Color defPlayerColor = new Color(255, 77, 0);
-	Color defBackgroundColor = new Color(209, 209, 224);
-	Color defWallColor = new Color(118, 118, 162);
-	Color defZombieColor = new Color(0, 255, 102);
-	Color defSkeletonColor = new Color(65, 85, 95);
-	Color defItemColor = new Color(255, 162, 18);
+	Color defStairColor;
+	Color defPlayerColor;
+	Color defBackgroundColor;
+	Color defWallColor;
+	Color defZombieColor;
+	Color defSkeletonColor;
+	Color defItemColor;
 
 	//Pixel/block size
 	int blockScale = 10;
@@ -28,7 +28,8 @@ public class Draw extends JPanel{
 	int offsetScale = (int) ((.2)*blockScale);
 	
 	//Background Width/Height
-	Font cSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
+	Font aSans = new Font("Comic Sans MS", Font.PLAIN, blockScale);
+	Font dSans = new Font("Comic Sans MS", Font.BOLD, blockScale*2);
 	int bgW;
 	int bgH;
 	
@@ -49,7 +50,7 @@ public class Draw extends JPanel{
 		//I was just annoyed at it not working)
 		bgH = (f.getWidth()*blockScale)+f.getHeight()+100;
 		bgW = (f.getHeight()*blockScale)+f.getWidth()+100;
-		cSans = new Font("Papyrus", Font.PLAIN, blockScale);
+		//aSans = new Font("Papyrus", Font.PLAIN, blockScale);
 	}
 	public void Drawing(Floor floor , boolean deadCheck) {
 		//PRE: a Floor object
@@ -170,25 +171,42 @@ public class Draw extends JPanel{
 				}
 				//Floor num
 				g.setColor(BLACK);
-				g.setFont(cSans);
+				g.setFont(aSans);
 				g.drawString("Floor " + UpdateQue.getFloorNum(), blockScale/10, blockScale);
 				
 				//PLAYER HEALTHBAR/Status String
-				g.setColor(WHITE);
+				if(!dead) {
+					g.setColor(WHITE);
+				}
+				else {
+					g.setColor(BLACK);
+				}
+				
 				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*10);
 				
 				String statusBarL1 = f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth() + "  "; 
 				String statusBarL2 = f.getPlayer().itemNumString(0);
 				String statusBarL3 = f.getPlayer().itemsExceptEquipped();
+				String deadLine = f.getPlayer().getName() + ".died() = true;";
 				g.setColor(BLACK);
 				g.drawString(statusBarL1, blockScale/10, f.getWidth()*blockScale + (f.getWidth()));
-				g.drawString(statusBarL2, blockScale/10, (f.getWidth()*(blockScale))+blockScale + f.getWidth());
-				g.drawString(statusBarL3, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
+				if(!dead) {
+					g.drawString(statusBarL2, blockScale/10, (f.getWidth()*(blockScale))+blockScale + f.getWidth());
+					g.drawString(statusBarL3, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
+				}
+				else {
+					g.setFont(dSans);
+					g.setColor(PINK);
+					g.drawString(deadLine, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
+				}
 				
-				g.setColor(PINK);
-				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100, blockScale);
-				g.setColor(RED);
-				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
+				if(!dead) {
+					g.setColor(PINK);
+					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100, blockScale);
+					g.setColor(RED);
+					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
+				}
+				
 				
 			}
 		}
