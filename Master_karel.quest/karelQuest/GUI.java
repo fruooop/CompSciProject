@@ -181,7 +181,7 @@ public class GUI {
 	        	  if(!UpdateQue.isDead()) {
 	        		  System.out.println("Pressed " + e.getKeyChar());
 		        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
-		        	  que.shimmyInventory();
+		        	  //que.shimmyInventory();
 		        	  que.draw(d, UpdateQue.getFloor());
 	        	  }
 	        	  else {

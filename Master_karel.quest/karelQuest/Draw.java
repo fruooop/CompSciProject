@@ -11,6 +11,8 @@ public class Draw extends JPanel{
 	Color PINK = new Color(255, 153, 153);
 	Color RED = new Color (255, 0 , 0);
 	Color WHITE = new Color(255, 255, 255);
+	Color GRAY = new Color(100, 100, 100);
+	Color GRAY2 = new Color(175, 175, 175);
 	Color BLACK = new Color(0,0,0);
 	Color defStairColor = new Color(125, 93, 38);
 	Color defPlayerColor = new Color(255, 77, 0);
@@ -30,6 +32,9 @@ public class Draw extends JPanel{
 	int bgW;
 	int bgH;
 	
+	//Other
+	boolean dead;
+	
 	public void setBlockScale(int scale) {
 		//Sets the scale of the pixels (default scale: 10 -> 10px X 10px)
 		blockScale = scale;
@@ -46,7 +51,7 @@ public class Draw extends JPanel{
 		bgW = (f.getHeight()*blockScale)+f.getWidth()+100;
 		cSans = new Font("Papyrus", Font.PLAIN, blockScale);
 	}
-	public void Drawing(Floor floor) {
+	public void Drawing(Floor floor , boolean deadCheck) {
 		//PRE: a Floor object
 		//POST: Draws it to a frame (Make sure you add it to a frame with FRAMENAME.add(DRAW_OBJECT_NAME))
 		
@@ -54,6 +59,7 @@ public class Draw extends JPanel{
 		//THIS IS ALSO JUST FOR TESTING
 		//CAN PASS A WORKING FLOOR IN
 		//floor.generateLayout();
+		dead = deadCheck;
 		f=floor;
 		setMapBGSize();
 		System.out.println(f.toString());
@@ -63,8 +69,26 @@ public class Draw extends JPanel{
 	//SETTING UP PAINTABLE COMPONENT
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
+		if(!dead) {
+			defStairColor = new Color(125, 93, 38);
+			defPlayerColor = new Color(255, 77, 0);
+			defBackgroundColor = new Color(209, 209, 224);
+			defWallColor = new Color(118, 118, 162);
+			defZombieColor = new Color(0, 255, 102);
+			defSkeletonColor = new Color(65, 85, 95);
+			defItemColor = new Color(255, 162, 18);
+		}
+		else {
+			defStairColor = GRAY2;
+			defPlayerColor = GRAY2;
+			defBackgroundColor = GRAY;
+			defWallColor = BLACK;
+			defZombieColor = RED;
+			defSkeletonColor = RED;
+			defItemColor = RED;
+		}
 		//Sets up map wall backgrounds
+
 		g.setColor(defWallColor);
 		g.fillRect(0, 0, bgW, bgH);
 		
@@ -155,15 +179,16 @@ public class Draw extends JPanel{
 				
 				String statusBarL1 = f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth() + "  "; 
 				String statusBarL2 = f.getPlayer().itemNumString(0);
+				String statusBarL3 = f.getPlayer().itemsExceptEquipped();
 				g.setColor(BLACK);
-				g.drawString(statusBarL1, blockScale/10, f.getWidth()*blockScale + f.getWidth());
+				g.drawString(statusBarL1, blockScale/10, f.getWidth()*blockScale + (f.getWidth()));
 				g.drawString(statusBarL2, blockScale/10, (f.getWidth()*(blockScale))+blockScale + f.getWidth());
-				
+				g.drawString(statusBarL3, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
 				
 				g.setColor(PINK);
-				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4, 100, blockScale);
+				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100, blockScale);
 				g.setColor(RED);
-				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
+				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
 				
 			}
 		}

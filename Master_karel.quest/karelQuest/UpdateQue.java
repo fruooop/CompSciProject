@@ -24,7 +24,7 @@ public class UpdateQue {
 	public void draw(Draw d, Floor f) {
 		//Draws the floor using the draw class (Basically a shortcut)
 		dr = d;
-		d.Drawing(f);
+		d.Drawing(f, isDead());
 	}
 	public boolean regenerateRoom() {
 		if(!(dr == null)) {
@@ -70,6 +70,10 @@ public class UpdateQue {
 				else if(input.equals("q"))
 				{
 					System.out.println(f.getPlayer().use(f));
+				}
+				else if(input.equals("f"))
+				{
+					shimmyInventory();
 				}
 				else if(input.equals("r")) {
 					if(f.getAt(f.getPlayer().getX(),f.getPlayer().getY()).isStairs()) {

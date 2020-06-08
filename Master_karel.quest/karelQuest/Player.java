@@ -8,7 +8,7 @@ public class Player extends Entity
 	private ArrayList<Item> inventory;
 	private int slotIndex; //-1 if there are no items
 	private int openSlots;
-	private int inventoryMaxSize = 4;
+	private int inventoryMaxSize = 3;
 	//private int x;  USE super.getX() instead
 	//private int y;  USE super.getY() instead
 
@@ -200,6 +200,18 @@ public class Player extends Entity
 		}
 		return s;
 	}
+	
+	public String itemsExceptEquipped() {
+		String s = "| ";
+		for(int i = 0; i < inventory.size(); i++) {
+			if(!(i == 0)) {
+				s += inventory.get(i) + " | ";
+			}
+			
+		}
+		return s += "";
+	}
+	
 	
 	
 	
