@@ -24,7 +24,7 @@ public class Draw extends JPanel{
 
 	//Pixel/block size
 	int blockScale = 10;
-	int smallBlockScale = (int) ((.6)*blockScale);
+	int smallBlockScale = (int) ((.6)*blockScale);//
 	int offsetScale = (int) ((.2)*blockScale);
 	
 	//Background Width/Height
