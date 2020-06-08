@@ -191,10 +191,11 @@ public class Player extends Entity
 		//returns the item at a certain inventory number
 		String s = "";
 		if(num<= inventory.size()) {
-			s += num+ 1 + ": ";
+			//s += num+ 1 + ": ";
 			s += inventory.get(num);
 			if (num == slotIndex) {
-				s += " EQUIPPED";
+				s = "[EQUIPPED]";
+				s += inventory.get(num);
 			}
 		}
 		return s;

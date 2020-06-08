@@ -18,7 +18,7 @@ public class Draw extends JPanel{
 	Color defWallColor = new Color(118, 118, 162);
 	Color defZombieColor = new Color(0, 255, 102);
 	Color defSkeletonColor = new Color(65, 85, 95);
-	Color defItemColor = new Color(255, 255, 0);
+	Color defItemColor = new Color(255, 162, 18);
 
 	//Pixel/block size
 	int blockScale = 10;
@@ -153,15 +153,17 @@ public class Draw extends JPanel{
 				g.setColor(WHITE);
 				g.fillRect(0, f.getWidth()*blockScale+blockScale, bgW, blockScale*10);
 				
-				String statusBar = f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth() + "  " + f.getPlayer().getInventoryList(); 
+				String statusBarL1 = f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth() + "  "; 
+				String statusBarL2 = f.getPlayer().itemNumString(0);
 				g.setColor(BLACK);
-				g.drawString(statusBar, blockScale/10, f.getWidth()*blockScale + f.getWidth());
+				g.drawString(statusBarL1, blockScale/10, f.getWidth()*blockScale + f.getWidth());
+				g.drawString(statusBarL2, blockScale/10, (f.getWidth()*(blockScale))+blockScale + f.getWidth());
 				
 				
 				g.setColor(PINK);
-				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*3, 100, blockScale);
+				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4, 100, blockScale);
 				g.setColor(RED);
-				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*3, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
+				g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
 				
 			}
 		}

@@ -108,7 +108,7 @@ public class UpdateQue {
 		Item lastItem = itemList.get(itemList.size() -1);
 		itemList.add(0, lastItem);
 		itemList.remove(itemList.size() -1);
-		System.out.println(itemList);
+		//System.out.println(itemList);
 		return true;
 	}
 	
