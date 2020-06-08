@@ -103,6 +103,7 @@ public class UpdateQue {
 	}
 	
 	public boolean shimmyInventory() {
+		//test
 		ArrayList<Item> itemList = karel.getInventoryList();
 		Item lastItem = itemList.get(itemList.size() -1);
 		itemList.add(0, lastItem);
