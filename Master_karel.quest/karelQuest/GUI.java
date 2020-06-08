@@ -178,7 +178,7 @@ public class GUI {
 
 	          public void keyPressed(KeyEvent e) {
 	        	  System.out.println("Pressed " + e.getKeyChar());
-	        	  que.shimmyInventory();
+	        	  //que.shimmyInventory();
 	        	  que.playerAction(UpdateQue.getFloor(), Character.toString(e.getKeyChar()));
 	        	  que.draw(d, UpdateQue.getFloor());
 	          }
