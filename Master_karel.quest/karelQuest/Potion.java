@@ -14,6 +14,7 @@ public class Potion extends Item
 	public int use()
 	{
 		int randomHeals = (int) (baseHeals + (Math.random() * (healRange + 1)));
+		UpdateQue.addPoints(30);
 		return randomHeals;
 	}
 	
