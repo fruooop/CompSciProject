@@ -412,6 +412,7 @@ public class Floor {
 				{
 					getAt(m.getX(), m.getY()).setEntity(null);
 					monsterList.remove(i);
+					UpdateQue.addPoints(100);
 				}
 				else
 				{
