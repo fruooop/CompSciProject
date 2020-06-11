@@ -197,7 +197,7 @@ public class Draw extends JPanel{
 					g.drawString(statusBarL2, blockScale/10, (f.getWidth()*(blockScale))+blockScale + f.getWidth());
 					g.drawString(statusBarL3, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
 					g.drawString(playerAction, blockScale/10, (f.getWidth()*(blockScale))+blockScale*4 + f.getWidth());
-					//g.drawString(monsterAction, blockScale/10, (f.getWidth()*(blockScale))+blockScale*5 + f.getWidth());
+					g.drawString(monsterAction, blockScale/10, (f.getWidth()*(blockScale))+blockScale*5 + f.getWidth());
 				}
 				else {
 					g.setFont(dSans);

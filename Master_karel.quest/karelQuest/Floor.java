@@ -35,6 +35,7 @@ public class Floor {
 		seedY = (int)(width * Math.random());
 		generateLayout();
 		pActionString = "";
+		mActionString = "";
 	}
 	
 	private void generateLayout() {
