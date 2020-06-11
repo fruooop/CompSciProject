@@ -8,19 +8,19 @@ public class Draw extends JPanel{
 	Floor f;
 	
 	//Color Declaration
-	Color PINK = new Color(255, 153, 153);
-	Color RED = new Color (255, 0 , 0);
-	Color WHITE = new Color(255, 255, 255);
-	Color GRAY = new Color(100, 100, 100);
-	Color GRAY2 = new Color(175, 175, 175);
-	Color BLACK = new Color(0,0,0);
-	Color defStairColor;
-	Color defPlayerColor;
-	Color defBackgroundColor;
-	Color defWallColor;
-	Color defZombieColor;
-	Color defSkeletonColor;
-	Color defItemColor;
+	private Color PINK = new Color(255, 153, 153);
+	private Color RED = new Color (255, 0 , 0);
+	private Color WHITE = new Color(255, 255, 255);
+	private Color GRAY = new Color(100, 100, 100);
+	private Color GRAY2 = new Color(175, 175, 175);
+	private Color BLACK = new Color(0,0,0);
+	private Color defStairColor;
+	private Color defPlayerColor;
+	private Color defBackgroundColor;
+	private Color defWallColor;
+	private Color defZombieColor;
+	private Color defSkeletonColor;
+	private Color defItemColor;
 
 	//Pixel/block size
 	int blockScale = 10;
@@ -188,6 +188,7 @@ public class Draw extends JPanel{
 				String statusBarL2 = f.getPlayer().itemNumString(0);
 				String statusBarL3 = f.getPlayer().itemsExceptEquipped();
 				String deadLine = f.getPlayer().getName() + ".died() = true;";
+				String scoreLine = f.getPlayer().getName() + ".getScore() = " + UpdateQue.getPoints();
 				g.setColor(BLACK);
 				g.drawString(statusBarL1, blockScale/10, f.getWidth()*blockScale + (f.getWidth()));
 				if(!dead) {
@@ -198,6 +199,7 @@ public class Draw extends JPanel{
 					g.setFont(dSans);
 					g.setColor(PINK);
 					g.drawString(deadLine, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
+					g.drawString(scoreLine, blockScale/10, (f.getWidth()*(blockScale))+blockScale*5 + f.getWidth());
 				}
 				
 				if(!dead) {
