@@ -101,8 +101,9 @@ public class UpdateQue {
 				System.out.println("Bruh, Something isn't right");
 			}
 			System.out.println(takeOtherActions(f));
-			actions+= takeOtherActions(f);
-			f.setAction(actions);
+			
+			f.setPlayerAction(actions);
+			f.setMonsterAction(takeOtherActions(f));
 		}
 	}
 
@@ -142,16 +143,7 @@ public class UpdateQue {
 		//returns floor
 		return f;
 	}
-	
-	private String statusString(Floor f) {
-		//Returns a string with a summary of what is going on.
-		if (!isDead) {
-			return f.getPlayer().toString();
-		}
-		else {
-			return "SORRY BUT YOU DIED RIP";
-		}
-	}
+
 	
 	public static boolean isDead() {
 		return isDead;

@@ -17,7 +17,8 @@ public class Floor {
 	private final int BASE_ROOM_HEIGHT = 5;
 	private final int ROOM_SIZE_VARIABILITY = 2;
 	private final double ITEM_CHANCE = .5; //0 <= ITEM_CHANCE <= 1
-	private String actionString;
+	private String pActionString;
+	private String mActionString;
 	
 	public Floor(int width, int height, int maxNumRooms) {
 		//Pre: width>=2(BASE_ROOM_WIDTH) + 1, height>=2(BASE_ROOM_HEIGHT) + 1
@@ -33,7 +34,7 @@ public class Floor {
 		seedX = (int)(height * Math.random());
 		seedY = (int)(width * Math.random());
 		generateLayout();
-		actionString = "";
+		pActionString = "";
 	}
 	
 	private void generateLayout() {
@@ -423,10 +424,10 @@ public class Floor {
 			}
 		}
 	}
-	public void setAction(String s) {actionString = s;}
-	public String getActionString() {return actionString;}
-	
-	
+	public void setPlayerAction(String s) {pActionString = s;}
+	public String getPlayerAction() {return pActionString;}
+	public void setMonsterAction(String s) {mActionString = s;}
+	public String getMonsterAction() {return mActionString;};
 	
 	
 	

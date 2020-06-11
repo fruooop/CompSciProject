@@ -187,7 +187,8 @@ public class Draw extends JPanel{
 				String statusBarL1 = f.getPlayer().getName() + " HP: " + f.getPlayer().getHealth() + "/" + f.getPlayer().getMaxHealth() + "  "; 
 				String statusBarL2 = f.getPlayer().itemNumString(0);
 				String statusBarL3 = f.getPlayer().itemsExceptEquipped();
-				String actionList = f.getActionString();
+				String playerAction = f.getPlayerAction();
+				String monsterAction = f.getMonsterAction();
 				String deadLine = f.getPlayer().getName() + ".died() = true;";
 				String scoreLine = f.getPlayer().getName() + ".getScore() = " + UpdateQue.getPoints();
 				g.setColor(BLACK);
@@ -195,7 +196,8 @@ public class Draw extends JPanel{
 				if(!dead) {
 					g.drawString(statusBarL2, blockScale/10, (f.getWidth()*(blockScale))+blockScale + f.getWidth());
 					g.drawString(statusBarL3, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
-					g.drawString(actionList, blockScale/10, (f.getWidth()*(blockScale))+blockScale*5 + f.getWidth());
+					g.drawString(playerAction, blockScale/10, (f.getWidth()*(blockScale))+blockScale*4 + f.getWidth());
+					//g.drawString(monsterAction, blockScale/10, (f.getWidth()*(blockScale))+blockScale*5 + f.getWidth());
 				}
 				else {
 					g.setFont(dSans);
