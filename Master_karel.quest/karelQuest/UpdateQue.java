@@ -51,6 +51,7 @@ public class UpdateQue {
 	public void playerAction(Floor f, String input) {
 		//Moves the player on floor f based on keyboard input
 		input = input.toLowerCase();
+		String actions = "";
 		if(!isDead) {
 			try {
 				if (input.equals("w") ||
@@ -69,7 +70,9 @@ public class UpdateQue {
 				}
 				else if(input.equals("q"))
 				{
-					System.out.println(f.getPlayer().use(f));
+					String temp = f.getPlayer().use(f);
+					System.out.println(temp);
+					actions += temp;
 				}
 				else if(input.equals("f"))
 				{
@@ -98,6 +101,8 @@ public class UpdateQue {
 				System.out.println("Bruh, Something isn't right");
 			}
 			System.out.println(takeOtherActions(f));
+			actions+= takeOtherActions(f);
+			f.setAction(actions);
 		}
 	}
 
@@ -120,14 +125,17 @@ public class UpdateQue {
 		//takes actions that occur after the player takes an action. eg) monsters move and attack
 		//Returns a string with a summary of what is going on.
 		f.removeDeadMonsters();
+		String mActions = "";
 		ArrayList<Monster> temp = f.getMonList();
 		for(Monster m : temp) {
-			System.out.println(m.act(f,f.getPlayer()));
+			String sTemp = m.act(f,f.getPlayer());
+			mActions += sTemp;
+			System.out.println(sTemp);
 		}
 		if(f.getPlayer().getHealth()<=0) {
 			isDead = true;
 		}
-		return statusString(f);
+		return mActions;
 	}
 	
 	public static Floor getFloor() {
