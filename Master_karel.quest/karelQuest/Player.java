@@ -60,7 +60,10 @@ public class Player extends Entity
 				Potion p = (Potion)inventory.get(slotIndex);
 				s += "You quaffed the potion and recovered " + (super.heal(p.use())) + " health. " + Utilities.randomTastyReaction();
 				inventory.remove(slotIndex);
-				slotIndex = 0;
+				if(inventory.size() > 0)
+					slotIndex = 0;
+				else
+					slotIndex = -1;
 				openSlots++;
 			}
 			return s;
@@ -74,6 +77,10 @@ public class Player extends Entity
 		if(openSlots > 0) {
 			inventory.add(i);
 			openSlots--;
+			if(slotIndex == -1)//item picked up was first item in an empty invetory
+			{
+				slotIndex = 0;
+			}
 			return true;
 		}
 		return false;
@@ -190,12 +197,15 @@ public class Player extends Entity
 	public String itemNumString(int num){
 		//returns the item at a certain inventory number
 		String s = "";
-		if(num<= inventory.size()) {
-			//s += num+ 1 + ": ";
-			s += inventory.get(num);
-			if (num == slotIndex) {
-				s = "[EQUIPPED]";
+		if(slotIndex > -1)
+		{
+			if(num<= inventory.size()) {
+				//s += num+ 1 + ": ";
 				s += inventory.get(num);
+				if (num == slotIndex) {
+					s = "[EQUIPPED]";
+					s += inventory.get(num);
+				}
 			}
 		}
 		return s;
@@ -203,11 +213,14 @@ public class Player extends Entity
 	
 	public String itemsExceptEquipped() {
 		String s = "| ";
-		for(int i = 0; i < inventory.size(); i++) {
-			if(!(i == 0)) {
-				s += inventory.get(i) + " | ";
+		if(slotIndex > -1)
+		{
+			for(int i = 0; i < inventory.size(); i++) {
+				if(!(i == 0)) {
+					s += inventory.get(i) + " | ";
+				}
+				
 			}
-			
 		}
 		return s += "";
 	}
