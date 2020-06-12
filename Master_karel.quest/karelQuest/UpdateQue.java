@@ -105,8 +105,6 @@ public class UpdateQue {
 			catch(Exception e){
 				System.out.println("Bruh, Something isn't right");
 			}
-			System.out.println(takeOtherActions(f));
-			
 			f.setPlayerAction(actions);
 			f.setMonsterAction(takeOtherActions(f));
 		}
