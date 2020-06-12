@@ -16,15 +16,9 @@ public class Player extends Entity
 	{
 		super(sendHealth, newX, newY, newString);
 		inventory = new ArrayList<Item>();
-<<<<<<< HEAD
 		inventory.add(new Weapon("Starting Sword", 4,2,1));
 		slotIndex = 0;
 		openSlots = 3;
-=======
-		slotIndex = -1;
-		openSlots = 4;
-		inventory.add(new Weapon("Starting Sword", 10, 5, 1));
->>>>>>> refs/heads/master
 	}
 
 	//pre: switches the currently held item

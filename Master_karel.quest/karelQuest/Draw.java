@@ -93,7 +93,6 @@ public class Draw extends JPanel{
 		g.setColor(defWallColor);
 		g.fillRect(0, 0, bgW, bgH);
 		
-		
 		//Generating and Drawing floor and players
 		for(int i = 0; i< f.getHeight(); i++) {
 			
@@ -104,7 +103,6 @@ public class Draw extends JPanel{
 					if(f.getAt(j, i).hasEntity()) {
 						//If the space is an entity
 						if(f.getAt(j,i).getEntity().getName().toLowerCase().contains("player")) {
-<<<<<<< HEAD
 							if(f.getAt(j, i).isStairs()) {
 								g.setColor(BLACK);
 							}
@@ -112,17 +110,6 @@ public class Draw extends JPanel{
 								g.setColor(defBackgroundColor);
 							}
 							g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
-=======
-							//Removes background color from player
-							if(!f.getAt(j,i).isStairs()) {
-								g.setColor(defBackgroundColor);
-								g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
-							}
-							else {
-								g.setColor(BLACK);
-								g.fillRect(i*blockScale, j*blockScale, blockScale, blockScale);
-							}
->>>>>>> refs/heads/master
 							
 							//Makes player
 							g.setColor(defPlayerColor);
@@ -226,13 +213,6 @@ public class Draw extends JPanel{
 					g.fillRect(0, ((f.getWidth()*blockScale)+blockScale*4-7)+10, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
 				}
 				
-				
-				
-				
-				//PLAYER HEALTH HERE!!!
-				
-				g.setColor(BLACK);
-				g.drawString(f.getPlayer().toString(), 0, 10);
 				
 			}
 		}
