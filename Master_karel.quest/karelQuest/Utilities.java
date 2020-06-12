@@ -94,7 +94,7 @@ public class Utilities {
 			case 0: return "Hurrah!";
 			case 1: return "pogChamp";
 			case 2: return "Yay!";
-			case 3: return "Epic Gamer Moment.";
+			case 3: return "Nice.";
 			case 4: return "Awesome!";
 			case 5: return "Great!";
 			case 6: return "Excellent!";
