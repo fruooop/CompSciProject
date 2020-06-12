@@ -38,7 +38,7 @@ public class GUI {
 		
 		
 		UpdateQue que = new UpdateQue(startingHealth);
-		int gHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight()+blockScale*3 + 40; //Fancy math for calculating gameWindow Height
+		int gHeight = (UpdateQue.getFloor().getWidth()*blockScale)+UpdateQue.getFloor().getHeight()+blockScale*3 + 60; //Fancy math for calculating gameWindow Height
 		int gWidth = (UpdateQue.getFloor().getHeight()*blockScale) + UpdateQue.getFloor().getWidth()+blockScale; //Fancy math for calculating gameWindow Widths
 		//---------------------------------------------------------//
 		//---STUFF FOR frame WINDOW--------------------------------//
