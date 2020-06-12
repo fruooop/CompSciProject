@@ -32,7 +32,7 @@ public class GUI {
 		
 		//Class declaration
 		JFrame frame = new JFrame("Info");
-		frame.setLayout(null);
+		frame.setLayout(null);//Push forced
 		//test
 		
 		
