@@ -74,7 +74,7 @@ public class Draw extends JPanel{
 			defStairColor = new Color(125, 93, 38);
 			defPlayerColor = new Color(255, 77, 0);
 			defBackgroundColor = new Color(209, 209, 224);
-			defWallColor = new Color(118, 118, 162);
+			defWallColor = new Color(118, 118, 162);//
 			defZombieColor = new Color(0, 255, 102);
 			defSkeletonColor = new Color(65, 85, 95);
 			defItemColor = new Color(255, 162, 18);
