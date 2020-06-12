@@ -192,25 +192,25 @@ public class Draw extends JPanel{
 				String deadLine = f.getPlayer().getName() + ".died() = true;";
 				String scoreLine = f.getPlayer().getName() + ".getScore() = " + UpdateQue.getPoints();
 				g.setColor(BLACK);
-				g.drawString(statusBarL1, blockScale/10, f.getWidth()*blockScale + (f.getWidth()));
+				g.drawString(statusBarL1, blockScale/10, (f.getWidth()*blockScale + (f.getWidth()))+10);
 				if(!dead) {
-					g.drawString(statusBarL2, blockScale/10, (f.getWidth()*(blockScale))+blockScale + f.getWidth());
-					g.drawString(statusBarL3, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
-					g.drawString(playerAction, blockScale/10, (f.getWidth()*(blockScale))+blockScale*4 + f.getWidth());
-					g.drawString(monsterAction, blockScale/10, (f.getWidth()*(blockScale))+blockScale*5 + f.getWidth());
+					g.drawString(statusBarL2, blockScale/10, ((f.getWidth()*(blockScale))+blockScale + f.getWidth())+10);
+					g.drawString(statusBarL3, blockScale/10, ((f.getWidth()*(blockScale))+blockScale*2 + f.getWidth())+10);
+					g.drawString(playerAction, blockScale/10, ((f.getWidth()*(blockScale))+blockScale*4 + f.getWidth())+10);
+					g.drawString(monsterAction, blockScale/10, ((f.getWidth()*(blockScale))+blockScale*5 + f.getWidth())+10);
 				}
 				else {
 					g.setFont(dSans);
 					g.setColor(PINK);
-					g.drawString(deadLine, blockScale/10, (f.getWidth()*(blockScale))+blockScale*2 + f.getWidth());
-					g.drawString(scoreLine, blockScale/10, (f.getWidth()*(blockScale))+blockScale*5 + f.getWidth());
+					g.drawString(deadLine, blockScale/10, ((f.getWidth()*(blockScale))+blockScale*2 + f.getWidth())+10);
+					g.drawString(scoreLine, blockScale/10, ((f.getWidth()*(blockScale))+blockScale*5 + f.getWidth()));
 				}
 				
 				if(!dead) {
 					g.setColor(PINK);
-					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4-7, 100, blockScale);
+					g.fillRect(0, ((f.getWidth()*blockScale)+blockScale*4-7)+10, 100, blockScale);
 					g.setColor(RED);
-					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4-7, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
+					g.fillRect(0, ((f.getWidth()*blockScale)+blockScale*4-7)+10, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
 				}
 				
 				
