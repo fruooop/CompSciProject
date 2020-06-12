@@ -23,7 +23,7 @@ public class Draw extends JPanel{
 	private Color defItemColor;
 
 	//Pixel/block size
-	int blockScale = 10;
+	int blockScale = 15;
 	int smallBlockScale = (int) ((.6)*blockScale);//
 	int offsetScale = (int) ((.2)*blockScale);
 	
@@ -208,9 +208,9 @@ public class Draw extends JPanel{
 				
 				if(!dead) {
 					g.setColor(PINK);
-					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100, blockScale);
+					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4-7, 100, blockScale);
 					g.setColor(RED);
-					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4+2, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
+					g.fillRect(0, (f.getWidth()*blockScale)+blockScale*4-7, 100*f.getPlayer().getHealth()/f.getPlayer().getMaxHealth(), blockScale);
 				}
 				
 				
