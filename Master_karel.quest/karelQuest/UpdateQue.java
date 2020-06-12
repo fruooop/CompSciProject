@@ -32,6 +32,7 @@ public class UpdateQue {
 			f = new Floor(fWidth,fHeight,rooms);
 			draw(dr, f);
 			points += 200;
+			karel.takeDamage(-10);
 			return true;
 		}
 		return false;
