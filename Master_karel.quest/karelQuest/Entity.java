@@ -83,4 +83,10 @@ public class Entity
 		}
 		return amount;
 	}
+	
+	public int increaseMaxHealthBy(int amount) {
+		//increases max health by amount, returns the new maxHealth
+		maxHealth += amount;
+		return maxHealth;
+	}
 }
