@@ -31,13 +31,12 @@ public class UpdateQue {
 			
 			f = new Floor(fWidth,fHeight,rooms);
 			if(floorNum%3 == 0) {
-				f.getPlayer().heal(5);
+
 				f.getPlayer().increaseMaxHealthBy(5);
 			}
+			f.getPlayer().heal(5);
 			draw(dr, f);
 			points += 200;
-			
-			
 			return true;
 		}
 		return false;
